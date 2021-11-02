@@ -1,0 +1,23 @@
+{
+    "name": "isaque/hr-system",
+    "description": "human resource system(HRS)",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Isaque\\Hr\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Isaque O. Silva",
+            "email": "Isaque1945@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer":"5.2.22",
+    	"slim/slim":"2.0",
+    	"rain/raintpl":"3.0.0"
+    }
+}
