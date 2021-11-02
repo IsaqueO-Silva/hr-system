@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '18de5589965dd7014030514cb2fd4a5ffcb3c244',
+        'reference' => 'aac6483cea24b9c4577531a47f1fe32df2122e3e',
         'name' => 'isaque/hr-system',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '18de5589965dd7014030514cb2fd4a5ffcb3c244',
+            'reference' => 'aac6483cea24b9c4577531a47f1fe32df2122e3e',
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(

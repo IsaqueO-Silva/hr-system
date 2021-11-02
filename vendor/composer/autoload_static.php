@@ -9,14 +9,14 @@ class ComposerStaticInit1919c794b0f638b1b2a3b85d50762498
     public static $prefixLengthsPsr4 = array (
         'I' => 
         array (
-            'Isaque\\Hr\\' => 10,
+            'Isaque\\' => 7,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Isaque\\Hr\\' => 
+        'Isaque\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/..' . '/isaque/php-classes/src',
         ),
     );
 
