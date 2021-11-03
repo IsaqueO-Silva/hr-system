@@ -63,6 +63,8 @@ CREATE TABLE employees (
     FOREIGN KEY(departament_id) REFERENCES departaments(departament_id)
 );
 
+DROP TABLE IF EXISTS 'db_hr'.'users';
+
 CREATE TABLE users (
   user_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
   employee_id INTEGER NOT NULL,
