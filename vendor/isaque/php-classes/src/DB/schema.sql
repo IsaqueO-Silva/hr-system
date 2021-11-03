@@ -1,14 +1,14 @@
-#CREATE DATABASE  IF NOT EXISTS `db_hr`;
-#USE `db_hr`;
+CREATE DATABASE  IF NOT EXISTS 'db_hr';
+USE 'db_hr';
 
-DROP TABLE IF EXISTS `db_hr`.`regions`;
+DROP TABLE IF EXISTS 'db_hr'.'regions';
 
 CREATE TABLE regions (
 	region_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     region_name VARCHAR(100) NOT NULL UNIQUE
 );
 
-DROP TABLE IF EXISTS `db_hr`.`countries`;
+DROP TABLE IF EXISTS 'db_hr'.'countries';
 
 CREATE TABLE countries (
     country_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -17,7 +17,7 @@ CREATE TABLE countries (
     FOREIGN KEY(region_id) REFERENCES regions(region_id)
 );
 
-DROP TABLE IF EXISTS `db_hr`.`locations`;
+DROP TABLE IF EXISTS 'db_hr'.'locations';
 
 CREATE TABLE locations (
 	location_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -29,7 +29,7 @@ CREATE TABLE locations (
     FOREIGN KEY(country_id) REFERENCES countries(country_id)
 );
 
-DROP TABLE IF EXISTS `db_hr`.`departaments`;
+DROP TABLE IF EXISTS 'db_hr'.'departaments';
 
 CREATE TABLE departaments (
 	departament_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -38,7 +38,7 @@ CREATE TABLE departaments (
     FOREIGN KEY(location_id) REFERENCES locations(location_id)
 );
 
-DROP TABLE IF EXISTS `db_hr`.`jobs`;
+DROP TABLE IF EXISTS 'db_hr'.'jobs';
 
 CREATE TABLE jobs (
 	job_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -47,7 +47,7 @@ CREATE TABLE jobs (
     max_salary DECIMAL(15,2) NOT NULL
 );
 
-DROP TABLE IF EXISTS `db_hr`.`employees`;
+DROP TABLE IF EXISTS 'db_hr'.'employees';
 
 CREATE TABLE employees (
 	employee_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -61,4 +61,13 @@ CREATE TABLE employees (
     departament_id INTEGER NOT NULL,
 	FOREIGN KEY(job_id) REFERENCES jobs(job_id),
     FOREIGN KEY(departament_id) REFERENCES departaments(departament_id)
+);
+
+CREATE TABLE users (
+  user_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  employee_id INTEGER NOT NULL,
+  login VARCHAR(64) NOT NULL,
+  password VARCHAR(256) NOT NULL,
+  dtregister TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY(employee_id) REFERENCES employees(employee_id)
 );
