@@ -30,7 +30,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="/admin/login" method="post">
+    <form action="/login" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Login" name="login">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -48,7 +48,7 @@
       </div>
     </form>
 
-    </br><a href="/admin/forgot">I forgot my password</a><br>
+    </br><a href="/forgot">I forgot my password</a><br>
   </div>
   <!-- /.login-box-body -->
 </div>
