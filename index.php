@@ -7,6 +7,8 @@ use \Isaque\Page;
 
 $app = new Slim();
 
+require_once('users.php');
+
 $app->config('debug', true);
 
 $app->get('/', function() {
