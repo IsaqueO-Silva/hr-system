@@ -11,6 +11,7 @@ use \Isaque\Model\User;
 $app = new Slim();
 
 require_once('users.php');
+require_once('jobs.php');
 
 $app->config('debug', true);
 

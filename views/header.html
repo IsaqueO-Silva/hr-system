@@ -117,7 +117,7 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="/users"><i class="fa fa-users"></i> <span>Users</span></a></li>
+        <li><a href="/jobs"><i class="fa fa-suitcase"></i> <span>Jobs</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
