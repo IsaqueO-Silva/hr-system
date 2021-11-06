@@ -19,6 +19,14 @@
         <div class="box-header with-border">
           <h3 class="box-title">Edit Job</h3>
         </div>
+
+        <?php if( $msgError != '' ){ ?>
+        <div class="alert alert-danger alert-dismissible" style="margin:10px">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <p><strong><?php echo htmlspecialchars( $msgError, ENT_COMPAT, 'UTF-8', FALSE ); ?></strong></p>
+        </div>
+        <?php } ?>
+
         <!-- /.box-header -->
         <!-- form start -->
         <form role="form" action="/jobs/<?php echo htmlspecialchars( $job["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">

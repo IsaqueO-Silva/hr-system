@@ -21,7 +21,9 @@ $app->get('/jobs/create', function() {
 
     $page = new Page();
 
-    $page->setTpl('jobs-create');
+    $page->setTpl('jobs-create', array(
+        'msgError' => Job::getError()
+    ));
 });
 
 $app->get('/jobs/:job_id/delete', function($job_id) {
@@ -49,7 +51,8 @@ $app->get('/jobs/:job_id', function($job_id) {
     $page = new Page();
 
     $page->setTpl('jobs-update', array(
-        'job'  => $job->getValues()
+        'job'       => $job->getValues(),
+        'msgError'  => Job::getError()
     ));
 });
 
@@ -61,7 +64,7 @@ $app->post('/jobs/create', function() {
 
     $job->setValues($_POST);
 
-    $job->save();
+    $job->insert();
 
     header('Location: /jobs');
     die;
@@ -77,7 +80,7 @@ $app->post('/jobs/:job_id', function($job_id) {
 
     $job->setValues($_POST);
 
-    $job->save();
+    $job->update();
 
     header('Location: /jobs');
     die;
