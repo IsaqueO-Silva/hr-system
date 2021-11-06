@@ -9,18 +9,26 @@ class Job extends Model {
 
     const ERROR     = 'JobError';
 
-    public function get($job_id) {
+    public function get($job_id) : void {
+        try {
 
-        $sql = new Sql();
+            $sql = new Sql();
 
-        $values = $sql->select('SELECT * FROM jobs WHERE(job_id = :job_id);', array(
-            ':job_id'   => $job_id
-        ));
+            $values = $sql->select('SELECT * FROM jobs WHERE(job_id = :job_id);', array(
+                ':job_id'   => $job_id
+            ));
 
-        $this->setValues($values[0]);
+            $this->setValues($values[0]);
+        }
+        catch(\Exception $e) {
+
+            Job::setError('Error capturing the job!');
+            header('Location: /jobs');
+            die;
+        }
     }
 
-    public static function listAll() {
+    public static function listAll() : array {
 
         $sql = new Sql();
 
@@ -29,6 +37,7 @@ class Job extends Model {
 
     public function insert() : void {
         try {
+
             if(
                 empty($this->getjob_title()) ||
                 empty($this->getmin_salary()) ||
@@ -71,6 +80,7 @@ class Job extends Model {
 
     public function update() : void {
         try {
+
             if(
                 empty($this->getjob_title()) ||
                 empty($this->getmin_salary()) ||
@@ -111,21 +121,29 @@ class Job extends Model {
         } 
     }
 
-    public function delete() {
+    public function delete() : void {
+        try {
 
-        $sql = new Sql();
+            $sql = new Sql();
 
-        $sql->query('DELETE FROM jobs WHERE(job_id = :job_id);', array(
-            ':job_id'    => $this->getjob_id()
-        ));
+            $sql->query('DELETE FROM jobs WHERE(job_id = :job_id);', array(
+                ':job_id'    => $this->getjob_id()
+            ));
+        }
+        catch(\Exception $e) {
+
+            Job::setError('Error deleting the job!');
+            header('Location: /jobs');
+            die;
+        }
     }
 
-    public static function setError($msg) {
+    public static function setError($msg) : void {
 
         $_SESSION[Job::ERROR]   = $msg;
     }
 
-    public static function getError() {
+    public static function getError() : string {
 
         $msg = (isset($_SESSION[Job::ERROR]) && ($_SESSION[Job::ERROR])) ? $_SESSION[Job::ERROR] : '';
 
@@ -134,7 +152,7 @@ class Job extends Model {
         return $msg;
     }
 
-    public static function clearError() {
+    public static function clearError() : void {
 
         $_SESSION[Job::ERROR]    = NULL;
     }

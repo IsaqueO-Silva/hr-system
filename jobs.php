@@ -11,7 +11,8 @@ $app->get('/jobs', function() {
     $page = new Page();
 
     $page->setTpl('jobs', array(
-        'jobs' => Job::listAll()
+        'jobs'      => Job::listAll(),
+        'msgError'  => Job::getError()
     ));
 });
 

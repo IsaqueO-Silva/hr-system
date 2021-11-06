@@ -22,6 +22,13 @@
             <a href="/jobs/create" class="btn btn-success">Add New Job</a>
           </div>
 
+          <?php if( $msgError != '' ){ ?>
+          <div class="alert alert-danger alert-dismissible" style="margin:10px">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <p><strong><?php echo htmlspecialchars( $msgError, ENT_COMPAT, 'UTF-8', FALSE ); ?></strong></p>
+          </div>
+          <?php } ?>
+
           <div class="box-body no-padding">
             <table class="table table-striped">
               <thead>
