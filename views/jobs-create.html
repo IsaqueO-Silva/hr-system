@@ -37,11 +37,11 @@
             </div>
             <div class="form-group">
               <label for="min_salary">Minimum salary</label>
-              <input type="text" class="form-control" id="min_salary" name="min_salary" required>
+              <input type="number" class="form-control" id="min_salary" name="min_salary" required>
             </div>
             <div class="form-group">
               <label for="max_salary">Maximum salary</label>
-              <input type="text" class="form-control" id="max_salary" name="max_salary" required>
+              <input type="number" class="form-control" id="max_salary" name="max_salary" required>
             </div>
           </div>
           <!-- /.box-body -->

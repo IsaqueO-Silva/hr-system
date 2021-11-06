@@ -38,8 +38,8 @@
                 <tr>
                   <td>{$value.job_id}</td>
                   <td>{$value.job_title}</td>
-                  <td>{$value.min_salary}</td>
-                  <td>{$value.max_salary}</td>
+                  <td class="money">{$value.min_salary}</td>
+                  <td class="money">{$value.max_salary}</td>
                   <td>
                     <a href="/jobs/{$value.job_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
                     <a href="/jobs/{$value.job_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>

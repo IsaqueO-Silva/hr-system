@@ -37,11 +37,11 @@
             </div>
             <div class="form-group">
               <label for="min_salary">Minimum salary</label>
-              <input type="text" class="form-control" id="min_salary" name="min_salary" value="<?php echo htmlspecialchars( $job["min_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <input type="number" class="form-control" id="min_salary" name="min_salary" value="<?php echo htmlspecialchars( $job["min_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
             </div>
             <div class="form-group">
               <label for="max_salary">Maximum salary</label>
-              <input type="text" class="form-control" id="max_salary" name="max_salary" value="<?php echo htmlspecialchars( $job["max_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <input type="number" class="form-control" id="max_salary" name="max_salary" value="<?php echo htmlspecialchars( $job["max_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
             </div>
           </div>
           <!-- /.box-body -->
