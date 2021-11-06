@@ -4,6 +4,26 @@ use \Isaque\Page;
 use \Isaque\Model\User;
 use \Isaque\Model\Job;
 
+$app->get('/jobs', function() {
+
+    User::verifyLogin();
+
+    $page = new Page();
+
+    $page->setTpl('jobs', array(
+        'jobs' => Job::listAll()
+    ));
+});
+
+$app->get('/jobs/create', function() {
+
+    User::verifyLogin();
+
+    $page = new Page();
+
+    $page->setTpl('jobs-create');
+});
+
 $app->get('/jobs/:job_id/delete', function($job_id) {
 
     User::verifyLogin();
@@ -18,13 +38,19 @@ $app->get('/jobs/:job_id/delete', function($job_id) {
     die;
 });
 
-$app->get('/jobs/create', function() {
+$app->get('/jobs/:job_id', function($job_id) {
 
     User::verifyLogin();
 
+    $job = new Job();
+
+    $job->get($job_id);
+
     $page = new Page();
 
-    $page->setTpl('jobs-create');
+    $page->setTpl('jobs-update', array(
+        'job'  => $job->getValues()
+    ));
 });
 
 $app->post('/jobs/create', function() {
@@ -41,14 +67,20 @@ $app->post('/jobs/create', function() {
     die;
 });
 
-$app->get('/jobs', function() {
+$app->post('/jobs/:job_id', function($job_id) {
 
     User::verifyLogin();
 
-    $page = new Page();
+    $job = new Job();
 
-    $page->setTpl('jobs', array(
-        'jobs' => Job::listAll()
-    ));
+    $job->get((int)$job_id);
+
+    $job->setValues($_POST);
+
+    $job->save();
+
+    header('Location: /jobs');
+    die;
 });
+
 ?>

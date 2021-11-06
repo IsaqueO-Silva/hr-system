@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -21,19 +21,19 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/jobs/{$job.job_id}" method="post">
+        <form role="form" action="/jobs/<?php echo htmlspecialchars( $job["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
           <div class="box-body">
             <div class="form-group">
               <label for="job_title">Title</label>
-              <input type="text" class="form-control" id="job_title" name="job_title" value="{$job.job_title}">
+              <input type="text" class="form-control" id="job_title" name="job_title" value="<?php echo htmlspecialchars( $job["job_title"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
             </div>
             <div class="form-group">
               <label for="min_salary">Minimum salary</label>
-              <input type="text" class="form-control" id="min_salary" name="min_salary" value="{$job.min_salary}">
+              <input type="text" class="form-control" id="min_salary" name="min_salary" value="<?php echo htmlspecialchars( $job["min_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
             </div>
             <div class="form-group">
               <label for="max_salary">Maximum salary</label>
-              <input type="text" class="form-control" id="max_salary" name="max_salary" value="{$job.max_salary}">
+              <input type="text" class="form-control" id="max_salary" name="max_salary" value="<?php echo htmlspecialchars( $job["max_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
             </div>
           </div>
           <!-- /.box-body -->
