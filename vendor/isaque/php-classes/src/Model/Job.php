@@ -26,7 +26,19 @@ class Job extends Model{
     }
 
     public function save() {
-        
+
+        $job_id = ($this->getjob_id()) ? $this->getjob_id() : 0;
+
+        $sql = new Sql();
+
+        $results = $sql->select('CALL sp_jobs_save(:pjob_id, :pjob_title, :pmin_salary, :pmax_salary);', array(
+            ':pjob_id'      => $job_id,
+            ':pjob_title'   => $this->getjob_title(),
+            ':pmin_salary'  => $this->getmin_salary(),
+            ':pmax_salary'  => $this->getmax_salary()
+        ));
+
+        $this->setValues($results[0]);
     }
 
     public function delete() {

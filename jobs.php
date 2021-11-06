@@ -31,11 +31,11 @@ $app->post('/jobs/create', function() {
 
     User::verifyLogin();
 
-    $user = new User();
+    $job = new Job();
 
-    $user->setValues($_POST);
+    $job->setValues($_POST);
 
-    $user->save();
+    $job->save();
 
     header('Location: /jobs');
     die;
