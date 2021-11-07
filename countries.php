@@ -4,6 +4,13 @@ use \Isaque\Page;
 use \Isaque\Model\User;
 use \Isaque\Model\Country;
 
+$app->get('/countries/search/:country_id', function($country_id) {
+
+    User::verifyLogin();
+
+    echo json_encode(Country::search($country_id));
+});
+
 $app->get('/countries', function() {
 
     User::verifyLogin();

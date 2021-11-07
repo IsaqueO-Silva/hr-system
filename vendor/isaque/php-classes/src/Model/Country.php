@@ -120,6 +120,15 @@ class Country extends Model {
         }
     }
 
+    public static function search($country_id) : array {
+
+        $sql = new Sql();
+
+        return $sql->select('SELECT * FROM countries WHERE(country_id = :country_id);', array(
+            ':country_id'   => $country_id
+        ));
+    }
+
     public static function setError($msg) : void {
 
         $_SESSION[Country::ERROR]   = $msg;
