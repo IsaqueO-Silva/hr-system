@@ -38,20 +38,28 @@ class Location extends Model {
     public function insert() : void {
         try {
 
-            if(empty($this->getlocation_name())) {
+            if(
+                empty($this->getstreet_address()) ||
+                empty($this->getpostal_code()) ||
+                empty($this->getcity()) ||
+                empty($this->getstate_province()) ||
+                empty($this->getcountry_id())
+            ) {
 
                 Location::setError('Please fill in all fields!');
                 header('Location: /locations/create');
                 exit;
             }
             else {
-                $location_id = ($this->getlocation_id()) ? $this->getlocation_id() : 0;
-
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_locations_save(:plocation_id, :plocation_name);', array(
-                    ':plocation_id'       => $location_id,
-                    ':plocation_name'     => $this->getlocation_name()
+                $results = $sql->select('CALL sp_locations_save(:plocation_id, :pstreet_address, :ppostal_code, :pcity, :pstate_province, :pcountry_id);', array(
+                    ':plocation_id'         => 0,
+                    ':pstreet_address'      => $this->getstreet_address(),
+                    ':ppostal_code'         => $this->getpostal_code(),
+                    ':pcity'                => $this->getcity(),
+                    ':pstate_province'      => $this->getstate_province(),
+                    ':pcountry_id'          => $this->getcountry_id(),
                 ));
 
                 $this->setValues($results[0]);
