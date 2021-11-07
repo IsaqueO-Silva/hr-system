@@ -88,5 +88,41 @@ BEGIN
   FROM countries
   WHERE (country_id = pcountry_id);
 	
+END
+
+CREATE PROCEDURE sp_locations_save(
+plocation_id INT(11),
+pstreet_address VARCHAR(200),
+ppostal_code VARCHAR(10),
+pcity VARCHAR(100),
+pstate_province VARCHAR(100),
+pcountry_id INT(11)
+)
+BEGIN
+
+	IF plocation_id > 0  THEN
+
+    UPDATE locations
+    SET
+      street_address   = pstreet_address,
+      postal_code      = ppostal_code,
+      city             = pcity,
+      state_province   = pstate_province,
+      country_id       = pcountry_id
+    WHERE (location_id    = plocation_id);
+
+  ELSE
+
+		INSERT INTO locations(street_address, postal_code, city, state_province, country_id)
+    VALUES (pstreet_address, ppostal_code, pcity, pstate_province, pcountry_id);
+
+		SET plocation_id = LAST_INSERT_ID();
+
+  END IF;
+    
+  SELECT *
+  FROM locations
+  WHERE (location_id = plocation_id);
+	
 END $$
 DELIMITER ;
