@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -22,12 +22,12 @@
             <a href="/locations/create" class="btn btn-success">Add New Location</a>
           </div>
 
-          {if="$msgError != ''"}
+          <?php if( $msgError != '' ){ ?>
           <div class="alert alert-danger alert-dismissible" style="margin:10px">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-              <p><strong>{$msgError}</strong></p>
+              <p><strong><?php echo htmlspecialchars( $msgError, ENT_COMPAT, 'UTF-8', FALSE ); ?></strong></p>
           </div>
-          {/if}
+          <?php } ?>
 
           <div class="table-responsive">
             <div class="box-body no-padding">
@@ -43,19 +43,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {loop="$locations"}
+                  <?php $counter1=-1;  if( isset($locations) && ( is_array($locations) || $locations instanceof Traversable ) && sizeof($locations) ) foreach( $locations as $key1 => $value1 ){ $counter1++; ?>
                   <tr>
-                    <td>{$value.location_id}</td>
-                    <td>{$value.street_address}</td>
-                    <td>{$value.postal_code}</td>
-                    <td>{$value.city} - {$value.state_province}</td>
-                    <td>{$value.country_name}</td>
+                    <td><?php echo htmlspecialchars( $value1["location_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["street_address"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["postal_code"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["city"], ENT_COMPAT, 'UTF-8', FALSE ); ?> - <?php echo htmlspecialchars( $value1["state_province"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["country_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>
-                      <a href="/locations/{$value.location_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="/locations/{$value.location_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="/locations/<?php echo htmlspecialchars( $value1["location_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="/locations/<?php echo htmlspecialchars( $value1["location_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
                     </td>
                   </tr>
-                  {/loop}
+                  <?php } ?>
                 </tbody>
               </table>
             </div>

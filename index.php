@@ -13,6 +13,7 @@ $app = new Slim();
 require_once('users.php');
 require_once('regions.php');
 require_once('countries.php');
+require_once('locations.php');
 require_once('jobs.php');
 
 $app->config('debug', true);

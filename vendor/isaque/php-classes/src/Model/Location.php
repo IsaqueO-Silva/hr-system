@@ -32,7 +32,7 @@ class Location extends Model {
 
         $sql = new Sql();
 
-        return $sql->select('SELECT * FROM locations ORDER BY location_name');
+        return $sql->select('SELECT * FROM locations a INNER JOIN countries b ON (a.country_id = b.country_id) ORDER BY street_address');
     }
 
     public function insert() : void {
