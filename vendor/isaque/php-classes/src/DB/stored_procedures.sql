@@ -30,5 +30,33 @@ BEGIN
     FROM jobs
     WHERE (job_id = pjob_id);
 	
+END
+
+CREATE PROCEDURE sp_regions_save(
+pregion_id INT(11),
+pregion_name VARCHAR(100)
+)
+BEGIN
+
+	IF pregion_id > 0  THEN
+
+        UPDATE regions
+        SET
+			region_name = pregion_name
+        WHERE (region_id    = pregion_id);
+
+    ELSE
+
+		INSERT INTO regions(region_name)
+        VALUES (pregion_name);
+
+		SET pregion_id = LAST_INSERT_ID();
+
+    END IF;
+    
+    SELECT *
+    FROM regions
+    WHERE (region_id = pregion_id);
+	
 END $$
 DELIMITER ;
