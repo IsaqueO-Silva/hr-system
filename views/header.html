@@ -126,7 +126,7 @@ desired effect
           <ul class="treeview-menu">
             <li><a href="/regions">Regions</a></li>
             <li><a href="/countries">Countries</a></li>
-            <li><a href="#">Locations</a></li>
+            <li><a href="/locations">Locations</a></li>
           </ul>
         </li>
         <li><a href="/jobs"><i class="fa fa-suitcase"></i> <span>Jobs</span></a></li>
