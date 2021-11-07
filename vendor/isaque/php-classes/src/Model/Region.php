@@ -113,6 +113,11 @@ class Region extends Model {
 
     public static function search($region_id) : array {
 
+        if(!(is_numeric($region_id))) {
+
+            return array();
+        }
+
         $sql = new Sql();
 
         return $sql->select('SELECT * FROM regions WHERE(region_id = :region_id);', array(

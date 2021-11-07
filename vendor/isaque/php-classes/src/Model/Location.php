@@ -131,6 +131,11 @@ class Location extends Model {
 
     public static function search($location_id) : array {
 
+        if(!(is_numeric($location_id))) {
+
+            return array();
+        }
+
         $sql = new Sql();
 
         return $sql->select('SELECT * FROM locations WHERE(location_id = :location_id);', array(

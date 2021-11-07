@@ -120,6 +120,11 @@ class Country extends Model {
 
     public static function search($country_id) : array {
 
+        if(!(is_numeric($country_id))) {
+
+            return array();
+        }
+
         $sql = new Sql();
 
         return $sql->select('SELECT * FROM countries WHERE(country_id = :country_id);', array(

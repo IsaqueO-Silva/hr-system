@@ -59,7 +59,7 @@
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
                   <label for="country_id">Country</label>
-                  <input type="number" min="1" class="form-control" id="country_id" name="country_id" onchange="searchCountry(this.value);" required>
+                  <input type="text" class="form-control" id="country_id" name="country_id" onchange="searchCountry(this.value);" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">
