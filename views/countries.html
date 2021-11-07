@@ -29,30 +29,32 @@
           </div>
           {/if}
 
-          <div class="box-body no-padding">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Name</th>
-                  <th>Region</th>
-                  <th style="width: 240px">&nbsp;</th>
-                </tr>
-              </thead>
-              <tbody>
-                {loop="$countries"}
-                <tr>
-                  <td>{$value.country_id}</td>
-                  <td>{$value.country_name}</td>
-                  <td>{$value.region_name}</td>
-                  <td>
-                    <a href="/countries/{$value.country_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                    <a href="/countries/{$value.country_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
-                  </td>
-                </tr>
-                {/loop}
-              </tbody>
-            </table>
+          <div class="table-responsive">
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Name</th>
+                    <th>Region</th>
+                    <th style="width: 240px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$countries"}
+                  <tr>
+                    <td>{$value.country_id}</td>
+                    <td>{$value.country_name}</td>
+                    <td>{$value.region_name}</td>
+                    <td>
+                      <a href="/countries/{$value.country_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="/countries/{$value.country_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- /.box-body -->
         </div>

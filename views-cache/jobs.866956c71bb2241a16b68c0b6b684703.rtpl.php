@@ -29,32 +29,34 @@
           </div>
           <?php } ?>
 
-          <div class="box-body no-padding">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Title</th>
-                  <th>Min salary</th>
-                  <th>Max salary</th>
-                  <th style="width: 240px">&nbsp;</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php $counter1=-1;  if( isset($jobs) && ( is_array($jobs) || $jobs instanceof Traversable ) && sizeof($jobs) ) foreach( $jobs as $key1 => $value1 ){ $counter1++; ?>
-                <tr>
-                  <td><?php echo htmlspecialchars( $value1["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td><?php echo htmlspecialchars( $value1["job_title"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td class="money"><?php echo htmlspecialchars( $value1["min_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td class="money"><?php echo htmlspecialchars( $value1["max_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td>
-                    <a href="/jobs/<?php echo htmlspecialchars( $value1["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                    <a href="/jobs/<?php echo htmlspecialchars( $value1["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
-                  </td>
-                </tr>
-                <?php } ?>
-              </tbody>
-            </table>
+          <div class="table-responsive">
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Title</th>
+                    <th>Min salary</th>
+                    <th>Max salary</th>
+                    <th style="width: 240px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $counter1=-1;  if( isset($jobs) && ( is_array($jobs) || $jobs instanceof Traversable ) && sizeof($jobs) ) foreach( $jobs as $key1 => $value1 ){ $counter1++; ?>
+                  <tr>
+                    <td><?php echo htmlspecialchars( $value1["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["job_title"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td class="money"><?php echo htmlspecialchars( $value1["min_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td class="money"><?php echo htmlspecialchars( $value1["max_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td>
+                      <a href="/jobs/<?php echo htmlspecialchars( $value1["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="/jobs/<?php echo htmlspecialchars( $value1["job_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+                    </td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- /.box-body -->
         </div>

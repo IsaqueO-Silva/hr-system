@@ -29,30 +29,32 @@
           </div>
           <?php } ?>
 
-          <div class="box-body no-padding">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Name</th>
-                  <th>Region</th>
-                  <th style="width: 240px">&nbsp;</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php $counter1=-1;  if( isset($countries) && ( is_array($countries) || $countries instanceof Traversable ) && sizeof($countries) ) foreach( $countries as $key1 => $value1 ){ $counter1++; ?>
-                <tr>
-                  <td><?php echo htmlspecialchars( $value1["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td><?php echo htmlspecialchars( $value1["country_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td><?php echo htmlspecialchars( $value1["region_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td>
-                    <a href="/countries/<?php echo htmlspecialchars( $value1["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                    <a href="/countries/<?php echo htmlspecialchars( $value1["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
-                  </td>
-                </tr>
-                <?php } ?>
-              </tbody>
-            </table>
+          <div class="table-responsive">
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Name</th>
+                    <th>Region</th>
+                    <th style="width: 240px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $counter1=-1;  if( isset($countries) && ( is_array($countries) || $countries instanceof Traversable ) && sizeof($countries) ) foreach( $countries as $key1 => $value1 ){ $counter1++; ?>
+                  <tr>
+                    <td><?php echo htmlspecialchars( $value1["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["country_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["region_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td>
+                      <a href="/countries/<?php echo htmlspecialchars( $value1["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="/countries/<?php echo htmlspecialchars( $value1["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+                    </td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- /.box-body -->
         </div>
