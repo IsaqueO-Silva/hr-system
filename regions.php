@@ -4,6 +4,13 @@ use \Isaque\Page;
 use \Isaque\Model\User;
 use \Isaque\Model\Region;
 
+$app->get('/regions/search/:region_id', function($region_id) {
+
+    User::verifyLogin();
+
+    echo json_encode(Region::search($region_id));
+});
+
 $app->get('/regions', function() {
 
     User::verifyLogin();
@@ -86,5 +93,4 @@ $app->post('/regions/:region_id', function($region_id) {
     header('Location: /regions');
     die;
 });
-
 ?>

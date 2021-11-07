@@ -45,7 +45,7 @@
               <div class="col-md-10">
                 <div class="form-group">
                   <label for="region_name">Name</label>
-                  <input type="text" class="form-control" id="region_name" name="region_name" required>
+                  <input type="text" class="form-control" id="region_name" name="region_name">
                 </div>
               </div>
             </div>

@@ -3,7 +3,6 @@
 use \Isaque\Page;
 use \Isaque\Model\User;
 use \Isaque\Model\Country;
-use \Isaque\Model\Region;
 
 $app->get('/countries', function() {
 
@@ -87,5 +86,4 @@ $app->post('/countries/:country_id', function($country_id) {
     header('Location: /countries');
     die;
 });
-
 ?>

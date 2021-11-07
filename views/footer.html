@@ -95,6 +95,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <!-- Masks -->
 <script src="/res/admin/masks/masks.js"></script>
+<!-- Functions -->
+<script src="/res/js/functions.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

@@ -112,6 +112,15 @@ class Region extends Model {
         }
     }
 
+    public static function search($region_id) : array {
+
+        $sql = new Sql();
+
+        return $sql->select('SELECT * FROM regions WHERE(region_id = :region_id);', array(
+            ':region_id'   => $region_id
+        ));
+    }
+
     public static function setError($msg) : void {
 
         $_SESSION[Region::ERROR]   = $msg;
