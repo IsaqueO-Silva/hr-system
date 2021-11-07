@@ -36,16 +36,16 @@
               <input type="text" class="form-control" id="country_name" name="country_name" required>
             </div>
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-xs-4 col-md-2">
                 <div class="form-group">
                   <label for="region_id">Region</label>
                   <input type="text" class="form-control" id="region_id" name="region_id" onchange="searchRegion(this.value);" required>
                 </div>
               </div>
-              <div class="col-md-10">
+              <div class="col-xs-8 col-md-10">
                 <div class="form-group">
                   <label for="region_name">Name</label>
-                  <input type="text" class="form-control" id="region_name" name="region_name">
+                  <input type="text" class="form-control" id="region_name">
                 </div>
               </div>
             </div>

@@ -38,7 +38,10 @@ class Country extends Model {
     public function insert() : void {
         try {
 
-            if(empty($this->getcountry_name())) {
+            if(
+                empty($this->getcountry_name()) ||
+                empty($this->getregion_id())
+            ) {
 
                 Country::setError('Please fill in all fields!');
                 header('Location: /countries/create');
@@ -49,9 +52,10 @@ class Country extends Model {
 
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_countries_save(:pcountry_id, :pcountry_name);', array(
-                    ':pcountry_id'       => $country_id,
-                    ':pcountry_name'     => $this->getcountry_name()
+                $results = $sql->select('CALL sp_countries_save(:pcountry_id, :pcountry_name, :pregion_id);', array(
+                    ':pcountry_id'          => $country_id,
+                    ':pcountry_name'        => $this->getcountry_name(),
+                    ':pregion_id'           => $this->getregion_id()
                 ));
 
                 $this->setValues($results[0]);
