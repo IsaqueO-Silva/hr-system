@@ -68,20 +68,21 @@ class Region extends Model {
     public function update() : void {
         try {
 
-            if(empty($this->getregion_name())) {
+            if(
+                empty($this->getregion_id()) ||
+                empty($this->getregion_name())
+            ) {
 
                 Region::setError('Please fill in all fields!');
                 header('Location: /regions/'.$this->getregion_id());
                 exit;
             }
             else {
-                $region_id = ($this->getregion_id()) ? $this->getregion_id() : 0;
-
                 $sql = new Sql();
 
                 $results = $sql->select('CALL sp_regions_save(:pregion_id, :pregion_name);', array(
-                    ':pregion_id'      => $region_id,
-                    ':pregion_name'   => $this->getregion_name()
+                    ':pregion_id'       => $this->getregion_id(),
+                    ':pregion_name'     => $this->getregion_name()
                 ));
 
                 $this->setValues($results[0]);
