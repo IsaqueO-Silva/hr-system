@@ -124,7 +124,7 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Regions</a></li>
+            <li><a href="/regions">Regions</a></li>
             <li><a href="#">Countries</a></li>
             <li><a href="#">Locations</a></li>
           </ul>
