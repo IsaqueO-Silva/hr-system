@@ -82,6 +82,7 @@ class Job extends Model {
         try {
 
             if(
+                empty($this->getjob_id()) ||
                 empty($this->getjob_title()) ||
                 empty($this->getmin_salary()) ||
                 empty($this->getmax_salary())
@@ -99,12 +100,10 @@ class Job extends Model {
                     exit;
                 }
 
-                $job_id = ($this->getjob_id()) ? $this->getjob_id() : 0;
-
                 $sql = new Sql();
 
                 $results = $sql->select('CALL sp_jobs_save(:pjob_id, :pjob_title, :pmin_salary, :pmax_salary);', array(
-                    ':pjob_id'      => $job_id,
+                    ':pjob_id'      => $this->getjob_id(),
                     ':pjob_title'   => $this->getjob_title(),
                     ':pmin_salary'  => $this->getmin_salary(),
                     ':pmax_salary'  => $this->getmax_salary()
