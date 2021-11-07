@@ -14,7 +14,7 @@ class Location extends Model {
 
             $sql = new Sql();
 
-            $values = $sql->select('SELECT * FROM locations WHERE(location_id = :location_id);', array(
+            $values = $sql->select('SELECT * FROM locations a INNER JOIN countries b ON (a.country_id = b.country_id) WHERE(location_id = :location_id);', array(
                 ':location_id'   => $location_id
             ));
 
@@ -78,7 +78,11 @@ class Location extends Model {
 
             if(
                 empty($this->getlocation_id()) ||
-                empty($this->getlocation_name())
+                empty($this->getstreet_address()) ||
+                empty($this->getpostal_code()) ||
+                empty($this->getcity()) ||
+                empty($this->getstate_province()) ||
+                empty($this->getcountry_id())
             ) {
 
                 Location::setError('Please fill in all fields!');
@@ -88,9 +92,13 @@ class Location extends Model {
             else {
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_locations_save(:plocation_id, :plocation_name);', array(
-                    ':plocation_id'       => $this->getlocation_id(),
-                    ':plocation_name'     => $this->getlocation_name()
+                $results = $sql->select('CALL sp_locations_save(:plocation_id, :pstreet_address, :ppostal_code, :pcity, :pstate_province, :pcountry_id);', array(
+                    ':plocation_id'         => $this->getlocation_id(),
+                    ':pstreet_address'      => $this->getstreet_address(),
+                    ':ppostal_code'         => $this->getpostal_code(),
+                    ':pcity'                => $this->getcity(),
+                    ':pstate_province'      => $this->getstate_province(),
+                    ':pcountry_id'          => $this->getcountry_id(),
                 ));
 
                 $this->setValues($results[0]);

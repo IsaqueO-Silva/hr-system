@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -20,38 +20,38 @@
           <h3 class="box-name">Edit Location</h3>
         </div>
 
-        {if="$msgError != ''"}
+        <?php if( $msgError != '' ){ ?>
         <div class="alert alert-danger alert-dismissible" style="margin:10px">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <p><strong>{$msgError}</strong></p>
+            <p><strong><?php echo htmlspecialchars( $msgError, ENT_COMPAT, 'UTF-8', FALSE ); ?></strong></p>
         </div>
-        {/if}
+        <?php } ?>
 
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/locations/{$location.location_id}" method="post">
+        <form role="form" action="/locations/<?php echo htmlspecialchars( $location["location_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
           <div class="box-body">
             <div class="form-group">
               <label for="street_address">Street address</label>
-              <input type="text" class="form-control" id="street_address" name="street_address" value="{$location.street_address}" required>
+              <input type="text" class="form-control" id="street_address" name="street_address" value="<?php echo htmlspecialchars( $location["street_address"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                   <label for="postal_code">Postal code</label>
-                  <input type="text" class="form-control" maxlength="10" id="postal_code" name="postal_code" value="{$location.postal_code}" required>
+                  <input type="text" class="form-control" maxlength="10" id="postal_code" name="postal_code" value="<?php echo htmlspecialchars( $location["postal_code"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
                 </div>
               </div>
               <div class="col-xs-6 col-md-5">
                 <div class="form-group">
                   <label for="city">City</label>
-                  <input type="text" class="form-control" id="city" name="city" value="{$location.city}" required>
+                  <input type="text" class="form-control" id="city" name="city" value="<?php echo htmlspecialchars( $location["city"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
                 </div>
               </div>
               <div class="col-xs-6 col-md-5">
                 <div class="form-group">
                   <label for="state_province">State</label>
-                  <input type="text" class="form-control" id="state_province" name="state_province" value="{$location.state_province}" required>
+                  <input type="text" class="form-control" id="state_province" name="state_province" value="<?php echo htmlspecialchars( $location["state_province"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
                 </div>
               </div>
             </div>
@@ -59,13 +59,13 @@
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
                   <label for="country_id">Country</label>
-                  <input type="number" min="1" class="form-control" id="country_id" name="country_id" value="{$location.country_id}" onchange="searchCountry(this.value);" required>
+                  <input type="number" min="1" class="form-control" id="country_id" name="country_id" value="<?php echo htmlspecialchars( $location["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onchange="searchCountry(this.value);" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">
                 <div class="form-group">
                   <label for="country_name">Name</label>
-                  <input type="text" class="form-control" id="country_name" value="{$location.country_name}">
+                  <input type="text" class="form-control" id="country_name" value="<?php echo htmlspecialchars( $location["country_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                 </div>
               </div>
             </div>
