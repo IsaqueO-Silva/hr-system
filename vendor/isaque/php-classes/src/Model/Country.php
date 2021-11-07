@@ -14,7 +14,7 @@ class Country extends Model {
 
             $sql = new Sql();
 
-            $values = $sql->select('SELECT * FROM countries WHERE(country_id = :country_id);', array(
+            $values = $sql->select('SELECT * FROM countries a INNER JOIN regions b ON (a.region_id = b.region_id) WHERE(country_id = :country_id);', array(
                 ':country_id'   => $country_id
             ));
 
@@ -72,20 +72,24 @@ class Country extends Model {
     public function update() : void {
         try {
 
-            if(empty($this->getcountry_name())) {
+            if(
+                empty($this->getcountry_id()) ||
+                empty($this->getcountry_name()) ||
+                empty($this->getregion_id())
+            ) {
 
                 Country::setError('Please fill in all fields!');
                 header('Location: /countries/'.$this->getcountry_id());
                 exit;
             }
             else {
-                $country_id = ($this->getcountry_id()) ? $this->getcountry_id() : 0;
 
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_countries_save(:pcountry_id, :pcountry_name);', array(
-                    ':pcountry_id'      => $country_id,
-                    ':pcountry_name'   => $this->getcountry_name()
+                $results = $sql->select('CALL sp_countries_save(:pcountry_id, :pcountry_name, :pregion_id);', array(
+                    ':pcountry_id'      => $this->getcountry_id(),
+                    ':pcountry_name'    => $this->getcountry_name(),
+                    ':pregion_id'       => $this->getregion_id()
                 ));
 
                 $this->setValues($results[0]);

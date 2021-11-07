@@ -16,7 +16,8 @@ function searchRegion(regionId) {
 
                 if(result.length == 0) {
 
-                    document.getElementById('region_name').value = '';
+                    document.getElementById('region_id').value      = '';
+                    document.getElementById('region_name').value    = '';
                     return;
                 }
 
