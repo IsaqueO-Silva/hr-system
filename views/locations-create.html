@@ -5,8 +5,8 @@
   <br>
   <ol class="breadcrumb">
     <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="/countries">Countries</a></li>
-    <li class="active"><a href="/countries/create">Add New Country</a></li>
+    <li><a href="/locations">Locations</a></li>
+    <li class="active"><a href="/locations/create">Add New Location</a></li>
   </ol>
 </section>
 
@@ -17,7 +17,7 @@
   	<div class="col-md-12">
   		<div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">New Country</h3>
+          <h3 class="box-title">New Location</h3>
         </div>
 
         {if="$msgError != ''"}
@@ -29,23 +29,43 @@
 
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/countries/create" method="post">
+        <form role="form" action="/locations/create" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="country_name">Name</label>
-              <input type="text" class="form-control" id="country_name" name="country_name" required>
+              <label for="street_address">Street address</label>
+              <input type="text" class="form-control" id="street_address" name="street_address" required>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-2">
+                <div class="form-group">
+                  <label for="postal_code">Postal code</label>
+                  <input type="text" class="form-control" maxlength="10" id="postal_code" name="postal_code" required>
+                </div>
+              </div>
+              <div class="col-xs-6 col-md-5">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" name="city" required>
+                </div>
+              </div>
+              <div class="col-xs-6 col-md-5">
+                <div class="form-group">
+                  <label for="state_province">State</label>
+                  <input type="text" class="form-control" id="state_province" name="state_province" required>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
-                  <label for="region_id">Region</label>
-                  <input type="number" class="form-control" id="region_id" name="region_id" onchange="searchRegion(this.value);" required>
+                  <label for="country_id">Country</label>
+                  <input type="number" min="1" class="form-control" id="country_id" name="country_id" onchange="searchCountry(this.value);" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">
                 <div class="form-group">
-                  <label for="region_name">Name</label>
-                  <input type="text" class="form-control" id="region_name">
+                  <label for="country_name">Name</label>
+                  <input type="text" class="form-control" id="country_name">
                 </div>
               </div>
             </div>
