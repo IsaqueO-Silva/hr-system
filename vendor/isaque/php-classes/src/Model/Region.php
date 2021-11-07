@@ -45,12 +45,10 @@ class Region extends Model {
                 exit;
             }
             else {
-                $region_id = ($this->getregion_id()) ? $this->getregion_id() : 0;
-
                 $sql = new Sql();
 
                 $results = $sql->select('CALL sp_regions_save(:pregion_id, :pregion_name);', array(
-                    ':pregion_id'       => $region_id,
+                    ':pregion_id'       => 0,
                     ':pregion_name'     => $this->getregion_name()
                 ));
 

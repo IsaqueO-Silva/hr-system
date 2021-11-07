@@ -48,12 +48,10 @@ class Country extends Model {
                 exit;
             }
             else {
-                $country_id = ($this->getcountry_id()) ? $this->getcountry_id() : 0;
-
                 $sql = new Sql();
 
                 $results = $sql->select('CALL sp_countries_save(:pcountry_id, :pcountry_name, :pregion_id);', array(
-                    ':pcountry_id'          => $country_id,
+                    ':pcountry_id'          => 0,
                     ':pcountry_name'        => $this->getcountry_name(),
                     ':pregion_id'           => $this->getregion_id()
                 ));

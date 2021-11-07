@@ -42,7 +42,7 @@
                 <tbody>
                   <?php $counter1=-1;  if( isset($regions) && ( is_array($regions) || $regions instanceof Traversable ) && sizeof($regions) ) foreach( $regions as $key1 => $value1 ){ $counter1++; ?>
                   <tr>
-                    <td><?php echo htmlspecialchars( $value1["region_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>3333333333444444444444444333333</td>
+                    <td><?php echo htmlspecialchars( $value1["region_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td><?php echo htmlspecialchars( $value1["region_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>
                       <a href="/regions/<?php echo htmlspecialchars( $value1["region_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
