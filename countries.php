@@ -3,6 +3,7 @@
 use \Isaque\Page;
 use \Isaque\Model\User;
 use \Isaque\Model\Country;
+use \Isaque\Model\Region;
 
 $app->get('/countries', function() {
 
@@ -23,7 +24,7 @@ $app->get('/countries/create', function() {
     $page = new Page();
 
     $page->setTpl('countries-create', array(
-        'msgError' => Country::getError()
+        'msgError'  => Country::getError()
     ));
 });
 
