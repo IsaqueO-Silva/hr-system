@@ -14,7 +14,7 @@ class Department extends Model {
 
             $sql = new Sql();
 
-            $values = $sql->select('SELECT * FROM departments a INNER JOIN regions b ON (a.region_id = b.region_id) WHERE(department_id = :department_id);', array(
+            $values = $sql->select('SELECT * FROM departments a INNER JOIN locations b ON (a.location_id = b.location_id) WHERE(department_id = :department_id);', array(
                 ':department_id'   => $department_id
             ));
 
@@ -32,7 +32,7 @@ class Department extends Model {
 
         $sql = new Sql();
 
-        return $sql->select('SELECT * FROM departments a INNER JOIN regions b ON (a.region_id = b.region_id) ORDER BY department_name;');
+        return $sql->select('SELECT * FROM departments a INNER JOIN locations b ON (a.location_id = b.location_id) ORDER BY department_name;');
     }
 
     public function insert() : void {
@@ -40,7 +40,7 @@ class Department extends Model {
 
             if(
                 empty($this->getdepartment_name()) ||
-                empty($this->getregion_id())
+                empty($this->getlocation_id())
             ) {
 
                 Department::setError('Please fill in all fields!');
@@ -50,10 +50,10 @@ class Department extends Model {
             else {
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_departments_save(:pdepartment_id, :pdepartment_name, :pregion_id);', array(
-                    ':pdepartment_id'          => 0,
-                    ':pdepartment_name'        => $this->getdepartment_name(),
-                    ':pregion_id'           => $this->getregion_id()
+                $results = $sql->select('CALL sp_departments_save(:pdepartment_id, :pdepartment_name, :plocation_id);', array(
+                    ':pdepartment_id'       => 0,
+                    ':pdepartment_name'     => $this->getdepartment_name(),
+                    ':plocation_id'         => $this->getlocation_id()
                 ));
 
                 $this->setValues($results[0]);
@@ -73,7 +73,7 @@ class Department extends Model {
             if(
                 empty($this->getdepartment_id()) ||
                 empty($this->getdepartment_name()) ||
-                empty($this->getregion_id())
+                empty($this->getlocation_id())
             ) {
 
                 Department::setError('Please fill in all fields!');
@@ -84,10 +84,10 @@ class Department extends Model {
 
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_departments_save(:pdepartment_id, :pdepartment_name, :pregion_id);', array(
+                $results = $sql->select('CALL sp_departments_save(:pdepartment_id, :pdepartment_name, :plocation_id);', array(
                     ':pdepartment_id'      => $this->getdepartment_id(),
                     ':pdepartment_name'    => $this->getdepartment_name(),
-                    ':pregion_id'       => $this->getregion_id()
+                    ':plocation_id'       => $this->getlocation_id()
                 ));
 
                 $this->setValues($results[0]);

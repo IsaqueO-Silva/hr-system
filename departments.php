@@ -18,8 +18,8 @@ $app->get('/departments', function() {
     $page = new Page();
 
     $page->setTpl('departments', array(
-        'departments' => Department::listAll(),
-        'msgError'  => Department::getError()
+        'departments'   => Department::listAll(),
+        'msgError'      => Department::getError()
     ));
 });
 

@@ -61,3 +61,35 @@ function searchCountry(countryId) {
         xhttp.send();   
     }
 }
+
+function searchLocation(locationId) {
+
+    if(locationId == '') {
+
+        return;
+    }
+    else {
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+
+            if ((this.readyState == 4) && (this.status == 200)) {
+
+                let result = JSON.parse(this.responseText);
+
+                if(result.length == 0) {
+
+                    document.getElementById('location_id').value      = '';
+                    document.getElementById('location_name').value    = '';
+                    return;
+                }
+
+                document.getElementById('location_name').value = result[0].street_address+' - '+result[0].city+'/'+result[0].state_province;
+            }
+        }
+
+        xhttp.open('GET', 'http://www.hrsystem.com/locations/search/'+locationId, true);
+        xhttp.send();   
+    }
+}

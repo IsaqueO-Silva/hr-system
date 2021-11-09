@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -22,12 +22,12 @@
             <a href="/departments/create" class="btn btn-success">Add New Department</a>
           </div>
 
-          {if="$msgError != ''"}
+          <?php if( $msgError != '' ){ ?>
           <div class="alert alert-danger alert-dismissible" style="margin:10px">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-              <p><strong>{$msgError}</strong></p>
+              <p><strong><?php echo htmlspecialchars( $msgError, ENT_COMPAT, 'UTF-8', FALSE ); ?></strong></p>
           </div>
-          {/if}
+          <?php } ?>
 
           <div class="table-responsive">
             <div class="box-body no-padding">
@@ -41,17 +41,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {loop="$departments"}
+                  <?php $counter1=-1;  if( isset($departments) && ( is_array($departments) || $departments instanceof Traversable ) && sizeof($departments) ) foreach( $departments as $key1 => $value1 ){ $counter1++; ?>
                   <tr>
-                    <td>{$value.department_id}</td>
-                    <td>{$value.department_name}</td>
-                    <td>{$value.city}</td>
+                    <td><?php echo htmlspecialchars( $value1["department_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["department_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><?php echo htmlspecialchars( $value1["city"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>
-                      <a href="/departments/{$value.department_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="/departments/{$value.department_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="/departments/<?php echo htmlspecialchars( $value1["department_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="/departments/<?php echo htmlspecialchars( $value1["department_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
                     </td>
                   </tr>
-                  {/loop}
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
