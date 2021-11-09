@@ -124,5 +124,35 @@ BEGIN
   FROM locations
   WHERE (location_id = plocation_id);
 	
+END
+
+CREATE PROCEDURE sp_departments_save(
+pdepartment_id INT(11),
+pdepartment_name VARCHAR(200),
+plocation_id INT(11)
+)
+BEGIN
+
+	IF pdepartment_id > 0  THEN
+
+    UPDATE departments
+    SET
+      department_name  = pdepartment_name,
+      location_id      = plocation_id
+    WHERE (department_id    = pdepartment_id);
+
+  ELSE
+
+		INSERT INTO departments(department_name, location_id)
+    VALUES (pdepartment_name, plocation_id);
+
+		SET pdepartment_id = LAST_INSERT_ID();
+
+  END IF;
+    
+  SELECT *
+  FROM departments
+  WHERE (department_id = pdepartment_id);
+	
 END $$
 DELIMITER ;
