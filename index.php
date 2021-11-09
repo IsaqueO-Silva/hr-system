@@ -16,6 +16,7 @@ require_once('countries.php');
 require_once('locations.php');
 require_once('departments.php');
 require_once('jobs.php');
+require_once('employees.php');
 
 $app->config('debug', true);
 

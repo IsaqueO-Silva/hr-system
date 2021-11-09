@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -20,12 +20,12 @@
           <h3 class="box-title">New Employee</h3>
         </div>
 
-        {if="$msgError != ''"}
+        <?php if( $msgError != '' ){ ?>
         <div class="alert alert-danger alert-dismissible" style="margin:10px">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <p><strong>{$msgError}</strong></p>
+            <p><strong><?php echo htmlspecialchars( $msgError, ENT_COMPAT, 'UTF-8', FALSE ); ?></strong></p>
         </div>
-        {/if}
+        <?php } ?>
 
         <!-- /.box-header -->
         <!-- form start -->

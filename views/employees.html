@@ -3,11 +3,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Countries Details
+    Employees Details
   </h1>
   <ol class="breadcrumb">
     <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active"><a href="/countries">Countries</a></li>
+    <li class="active"><a href="/employees">Employees</a></li>
   </ol>
 </section>
 
@@ -19,7 +19,7 @@
         <div class="box box-primary">
           
           <div class="box-header">
-            <a href="/countries/create" class="btn btn-success">Add New Country</a>
+            <a href="/employees/create" class="btn btn-success">Add New Employee</a>
           </div>
 
           {if="$msgError != ''"}
@@ -36,19 +36,29 @@
                   <tr>
                     <th style="width: 10px">#</th>
                     <th>Name</th>
-                    <th>Region</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Hire date</th>
+                    <th>Job</th>
+                    <th>Salary</th>
+                    <th>Department</th>
                     <th style="width: 240px">&nbsp;</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {loop="$countries"}
+                  {loop="$employees"}
                   <tr>
-                    <td>{$value.country_id}</td>
-                    <td>{$value.country_name}</td>
-                    <td>{$value.region_name}</td>
+                    <td>{$value.employee_id}</td>
+                    <td>{$value.fist_name} {$value.last_name}</td>
+                    <td>{$value.email}</td>
+                    <td>{$value.phone_number}</td>
+                    <td>{$value.hire_date}</td>
+                    <td>{$value.job_title}</td>
+                    <td>{$value.salary}</td>
+                    <td>{$value.department_name}</td>
                     <td>
-                      <a href="/countries/{$value.country_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="/countries/{$value.country_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="/employees/{$value.employee_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="/employees/{$value.employee_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
                     </td>
                   </tr>
                   {/loop}
