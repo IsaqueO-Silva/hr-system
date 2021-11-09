@@ -129,7 +129,7 @@ desired effect
             <li><a href="/locations">Locations</a></li>
           </ul>
         </li>
-        <li><a href="/departaments"><i class="fa fa-building"></i> <span>Departaments</span></a></li>
+        <li><a href="/departments"><i class="fa fa-building"></i> <span>Departments</span></a></li>
         <li><a href="/jobs"><i class="fa fa-suitcase"></i> <span>Jobs</span></a></li>
       </ul>
       
