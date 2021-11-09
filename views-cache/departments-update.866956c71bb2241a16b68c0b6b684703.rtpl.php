@@ -5,8 +5,8 @@
   <br>
   <ol class="breadcrumb">
     <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="/countries">Countries</a></li>
-    <li class="active"><a href="">Edit Country</a></li>
+    <li><a href="/departments">Departments</a></li>
+    <li class="active"><a href="">Edit Department</a></li>
   </ol>
 </section>
 
@@ -17,7 +17,7 @@
   	<div class="col-md-12">
   		<div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-name">Edit Country</h3>
+          <h3 class="box-name">Edit Department</h3>
         </div>
 
         <?php if( $msgError != '' ){ ?>
@@ -29,23 +29,23 @@
 
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/countries/<?php echo htmlspecialchars( $country["country_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
+        <form role="form" action="/departments/<?php echo htmlspecialchars( $department["department_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="country_name">Name</label>
-              <input type="text" class="form-control" id="country_name" name="country_name" value="<?php echo htmlspecialchars( $country["country_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+              <label for="department_name">Name</label>
+              <input type="text" class="form-control" id="department_name" name="department_name" value="<?php echo htmlspecialchars( $department["department_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
             </div>
             <div class="row">
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
-                  <label for="region_id">Region</label>
-                  <input type="text" class="form-control" id="region_id" name="region_id" value="<?php echo htmlspecialchars( $country["region_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onchange="searchRegion(this.value);" required>
+                  <label for="location_id">Region</label>
+                  <input type="text" class="form-control" id="location_id" name="location_id" value="<?php echo htmlspecialchars( $department["location_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onchange="searchLocation(this.value);" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">
                 <div class="form-group">
-                  <label for="region_name">Name</label>
-                  <input type="text" class="form-control" id="region_name" value="<?php echo htmlspecialchars( $country["region_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                  <label for="location_name">Name</label>
+                  <input type="text" class="form-control" id="location_name" value="<?php echo htmlspecialchars( $department["street_address"], ENT_COMPAT, 'UTF-8', FALSE ); ?> - <?php echo htmlspecialchars( $department["city"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/<?php echo htmlspecialchars( $department["state_province"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                 </div>
               </div>
             </div>

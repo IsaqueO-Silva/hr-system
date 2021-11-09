@@ -5,8 +5,8 @@
   <br>
   <ol class="breadcrumb">
     <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="/countries">Countries</a></li>
-    <li class="active"><a href="">Edit Country</a></li>
+    <li><a href="/departments">Departments</a></li>
+    <li class="active"><a href="">Edit Department</a></li>
   </ol>
 </section>
 
@@ -17,7 +17,7 @@
   	<div class="col-md-12">
   		<div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-name">Edit Country</h3>
+          <h3 class="box-name">Edit Department</h3>
         </div>
 
         {if="$msgError != ''"}
@@ -29,23 +29,23 @@
 
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/countries/{$country.country_id}" method="post">
+        <form role="form" action="/departments/{$department.department_id}" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="country_name">Name</label>
-              <input type="text" class="form-control" id="country_name" name="country_name" value="{$country.country_name}" required>
+              <label for="department_name">Name</label>
+              <input type="text" class="form-control" id="department_name" name="department_name" value="{$department.department_name}" required>
             </div>
             <div class="row">
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
-                  <label for="region_id">Region</label>
-                  <input type="text" class="form-control" id="region_id" name="region_id" value="{$country.region_id}" onchange="searchRegion(this.value);" required>
+                  <label for="location_id">Region</label>
+                  <input type="text" class="form-control" id="location_id" name="location_id" value="{$department.location_id}" onchange="searchLocation(this.value);" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">
                 <div class="form-group">
-                  <label for="region_name">Name</label>
-                  <input type="text" class="form-control" id="region_name" value="{$country.region_name}">
+                  <label for="location_name">Name</label>
+                  <input type="text" class="form-control" id="location_name" value="{$department.street_address} - {$department.city}/{$department.state_province}">
                 </div>
               </div>
             </div>

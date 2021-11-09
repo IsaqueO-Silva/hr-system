@@ -85,9 +85,9 @@ class Department extends Model {
                 $sql = new Sql();
 
                 $results = $sql->select('CALL sp_departments_save(:pdepartment_id, :pdepartment_name, :plocation_id);', array(
-                    ':pdepartment_id'      => $this->getdepartment_id(),
-                    ':pdepartment_name'    => $this->getdepartment_name(),
-                    ':plocation_id'       => $this->getlocation_id()
+                    ':pdepartment_id'       => $this->getdepartment_id(),
+                    ':pdepartment_name'     => $this->getdepartment_name(),
+                    ':plocation_id'         => $this->getlocation_id()
                 ));
 
                 $this->setValues($results[0]);

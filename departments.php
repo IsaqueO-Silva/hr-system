@@ -59,8 +59,8 @@ $app->get('/departments/:department_id', function($department_id) {
     $page = new Page();
 
     $page->setTpl('departments-update', array(
-        'department'   => $department->getValues(),
-        'msgError'  => Department::getError()
+        'department'    => $department->getValues(),
+        'msgError'      => Department::getError()
     ));
 });
 
