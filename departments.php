@@ -34,6 +34,21 @@ $app->get('/departments/create', function() {
     ));
 });
 
+$app->get('/departments/:department_id/location', function($department_id) {
+
+    User::verifyLogin();
+
+    $department = new Department();
+
+    $department->get((int)$department_id);
+
+    $page = new Page();
+
+    $page->setTpl('location', array(
+        'department' => $department->getValues()
+    ));
+});
+
 $app->get('/departments/:department_id/delete', function($department_id) {
 
     User::verifyLogin();

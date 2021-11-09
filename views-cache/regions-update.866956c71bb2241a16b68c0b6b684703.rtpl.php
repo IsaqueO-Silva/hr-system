@@ -33,7 +33,7 @@
           <div class="box-body">
             <div class="form-group">
               <label for="region_name">Name</label>
-              <input type="text" class="form-control" id="region_name" name="region_name" value="<?php echo htmlspecialchars( $region["region_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <input type="text" class="form-control" id="region_name" name="region_name" value="<?php echo htmlspecialchars( $region["region_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
             </div>
           </div>
           <!-- /.box-body -->

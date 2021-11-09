@@ -1,0 +1,46 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    <h1>
+        {$department.department_name} - Location
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/departments">Departments</a></li>
+        <li class="active"><a href="/departments/{$department.department_id}/location">{$department.department_name} - location</a></li>
+    </ol>
+    </section>
+
+    <section class="invoice">
+        <!-- Table row -->
+        <div class="row">
+            <div class="col-xs-12 table-responsive">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Street address</th>
+                                <th>Postal code</th>
+                                <th>City / State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{$department.street_address}</td>
+                                <td>{$department.postal_code}</td>
+                                <td>{$department.city} / {$department.state_province}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+    <div class="clearfix"></div>
+
+</div>
+<!-- /.content-wrapper -->

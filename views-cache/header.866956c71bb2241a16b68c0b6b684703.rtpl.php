@@ -131,6 +131,7 @@ desired effect
         </li>
         <li><a href="/departments"><i class="fa fa-building"></i> <span>Departments</span></a></li>
         <li><a href="/jobs"><i class="fa fa-suitcase"></i> <span>Jobs</span></a></li>
+        <li><a href="/employees"><i class="fa fa-users"></i> <span>Employees</span></a></li>
       </ul>
       
       <!-- /.sidebar-menu -->

@@ -47,6 +47,7 @@
                     <td>{$value.department_name}</td>
                     <td>{$value.city}</td>
                     <td>
+                      <a href="/departments/{$value.department_id}/location" class="btn btn-default btn-xs"><i class="fa fa-building"></i> Location</a>
                       <a href="/departments/{$value.department_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
                       <a href="/departments/{$value.department_id}/delete" onclick="return confirm('Do you really want to delete this record?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
                     </td>
