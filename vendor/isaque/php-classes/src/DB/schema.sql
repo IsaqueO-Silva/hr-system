@@ -29,11 +29,11 @@ CREATE TABLE locations (
     FOREIGN KEY(country_id) REFERENCES countries(country_id)
 );
 
-DROP TABLE IF EXISTS 'db_hr'.'departaments';
+DROP TABLE IF EXISTS 'db_hr'.'departments';
 
-CREATE TABLE departaments (
-	departament_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    departament_name VARCHAR(200) NOT NULL UNIQUE,
+CREATE TABLE departments (
+	department_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    department_name VARCHAR(200) NOT NULL UNIQUE,
     location_id INTEGER NOT NULL,
     FOREIGN KEY(location_id) REFERENCES locations(location_id)
 );
@@ -58,9 +58,9 @@ CREATE TABLE employees (
     hire_date DATETIME NOT NULL,
     job_id INTEGER NOT NULL,
     salary DECIMAL(15,2) NOT NULL,
-    departament_id INTEGER NOT NULL,
+    department_id INTEGER NOT NULL,
 	FOREIGN KEY(job_id) REFERENCES jobs(job_id),
-    FOREIGN KEY(departament_id) REFERENCES departaments(departament_id)
+    FOREIGN KEY(department_id) REFERENCES departments(department_id)
 );
 
 DROP TABLE IF EXISTS 'db_hr'.'users';
