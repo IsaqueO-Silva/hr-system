@@ -4,6 +4,13 @@ use \Isaque\Page;
 use \Isaque\Model\User;
 use \Isaque\Model\Job;
 
+$app->get('/jobs/search/:job_id', function($job_id) {
+
+    User::verifyLogin();
+
+    echo json_encode(Job::search($job_id));
+});
+
 $app->get('/jobs', function() {
 
     User::verifyLogin();

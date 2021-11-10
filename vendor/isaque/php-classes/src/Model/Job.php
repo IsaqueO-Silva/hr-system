@@ -135,6 +135,20 @@ class Job extends Model {
         }
     }
 
+    public static function search($job_id) : array {
+
+        if(!(is_numeric($job_id))) {
+
+            return array();
+        }
+
+        $sql = new Sql();
+
+        return $sql->select('SELECT * FROM jobs WHERE(job_id = :job_id);', array(
+            ':job_id'   => $job_id
+        ));
+    }
+
     public static function setError($msg) : void {
 
         $_SESSION[Job::ERROR]   = $msg;

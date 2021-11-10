@@ -39,7 +39,7 @@
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
                   <label for="location_id">Region</label>
-                  <input type="text" class="form-control" id="location_id" name="location_id" value="<?php echo htmlspecialchars( $department["location_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onchange="searchLocation(this.value);" required>
+                  <input type="text" class="form-control" id="location_id" name="location_id" value="<?php echo htmlspecialchars( $department["location_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onchange="search(this.value, 'locations');" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">
