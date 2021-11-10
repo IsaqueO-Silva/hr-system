@@ -75,7 +75,7 @@
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
                   <label for="job_id">Job</label>
-                  <input type="text" class="form-control" id="job_id" name="job_id" onchange="searchJob(this.value);" required>
+                  <input type="text" class="form-control" id="job_id" name="job_id" onchange="search(this.value, 'job');" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">
@@ -89,7 +89,7 @@
               <div class="col-xs-4 col-md-2">
                 <div class="form-group">
                   <label for="department_id">Department</label>
-                  <input type="text" class="form-control" id="department_id" name="department_id" onchange="searchDepartment(this.value);" required>
+                  <input type="text" class="form-control" id="department_id" name="department_id" onchange="search(this.value, 'department');" required>
                 </div>
               </div>
               <div class="col-xs-8 col-md-10">

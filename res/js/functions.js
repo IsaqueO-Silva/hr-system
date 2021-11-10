@@ -93,3 +93,48 @@ function searchLocation(locationId) {
         xhttp.send();   
     }
 }
+
+function search(argId, argModule) {
+
+    let id      = argId;
+    let module  = argModule;
+
+    if((argId == '') || (argModule = '')) {
+
+        return;
+    }
+    else {
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+
+            if ((this.readyState == 4) && (this.status == 200)) {
+
+                let result = JSON.parse(this.responseText);
+
+                if(result.length == 0) {
+
+                    document.getElementById(module+'_id').value      = '';
+                    document.getElementById(module+'_name').value    = '';
+                    return;
+                }
+
+                switch(module) {
+
+                    case 'job':
+                        document.getElementById('job_name').value = result[0].job_title;
+                    break;
+
+                    case 'department':
+                        document.getElementById('department_name').value = result[0].department_name;
+                    break;
+                }
+                
+            }
+        }
+
+        xhttp.open('GET', 'http://www.hrsystem.com/'+module+'s/search/'+id, true);
+        xhttp.send();   
+    }
+}
