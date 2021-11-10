@@ -1,3 +1,4 @@
+/* This search function is used by many components dinamically */
 function search(argId, argModule) {
 
     let id      = argId;
@@ -19,10 +20,7 @@ function search(argId, argModule) {
 
                 if(result.length == 0) {
 
-                    if(module == 'countries') {
-
-                        module = 'country';
-                    }
+                    module = (module == 'countries') ? 'country' : module = module.slice(0, -1);
 
                     document.getElementById(module+'_id').value      = '';
                     document.getElementById(module+'_name').value    = '';
