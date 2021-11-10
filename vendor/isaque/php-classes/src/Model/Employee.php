@@ -43,8 +43,14 @@ class Employee extends Model {
         try {
 
             if(
-                empty($this->getemployee_name()) ||
-                empty($this->getregion_id())
+                empty($this->getfist_name()) ||
+                empty($this->getlast_name()) ||
+                empty($this->getemail()) ||
+                empty($this->getphone_number()) ||
+                empty($this->gethire_date()) ||
+                empty($this->getjob_id()) ||
+                empty($this->getsalary()) ||
+                empty($this->getdepartment_id())
             ) {
 
                 Employee::setError('Please fill in all fields!');

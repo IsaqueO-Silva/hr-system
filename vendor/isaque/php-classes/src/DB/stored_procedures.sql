@@ -154,5 +154,44 @@ BEGIN
   FROM departments
   WHERE (department_id = pdepartment_id);
 	
+END
+
+CREATE PROCEDURE sp_employees_save(
+pemployee_id INT(11),
+pfist_name VARCHAR(100),
+plast_name VARCHAR(100),
+pemail VARCHAR(120),
+pphone_number VARCHAR(15),
+phire_date DATETIME,
+pjob_id INT(11),
+psalary DECIMAL(15, 2),
+pdepartment_id INT(11)
+)
+BEGIN
+
+	IF pemployee_id > 0  THEN
+
+    UPDATE employees
+    SET
+      employee_name  = pemployee_name,
+      location_id      = plocation_id
+    WHERE (employee_id    = pemployee_id);
+
+  ELSE
+
+		INSERT INTO employees(fist_name, last_name, email, phone_number, hire_date, job_id, salary, department_id)
+    VALUES (pfist_name, plast_name, pemail, pphone_number, phire_date, pjob_id, psalary, pdepartment_id);
+
+		SET pemployee_id = LAST_INSERT_ID();
+
+    INSERT INTO users(employee_id, login, password)
+    VALUES (pfist_name, plast_name, pemail);
+
+  END IF;
+    
+  SELECT *
+  FROM employees
+  WHERE (employee_id = pemployee_id);
+	
 END $$
 DELIMITER ;
