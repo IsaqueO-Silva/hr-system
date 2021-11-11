@@ -165,7 +165,9 @@ pphone_number VARCHAR(15),
 phire_date DATETIME,
 pjob_id INT(11),
 psalary DECIMAL(15, 2),
-pdepartment_id INT(11)
+pdepartment_id INT(11),
+plogin VARCHAR(64),
+ppassword VARCHAR(256)
 )
 BEGIN
 
@@ -183,12 +185,24 @@ BEGIN
       department_id = pdepartment_id
     WHERE (employee_id    = pemployee_id);
 
+    UPDATE users
+    SET
+      login = plogin
+    WHERE (employee_id = pemployee_id);
+
   ELSE
 
 		INSERT INTO employees(fist_name, last_name, email, phone_number, hire_date, job_id, salary, department_id)
     VALUES (pfist_name, plast_name, pemail, pphone_number, phire_date, pjob_id, psalary, pdepartment_id);
 
 		SET pemployee_id = LAST_INSERT_ID();
+
+    IF plogin != "" AND ppassword != "" THEN
+
+      INSERT INTO users(employee_id, login, password)
+      VALUES(pemployee_id, plogin, ppassword);
+    END IF;
+
   END IF;
 
   SELECT *

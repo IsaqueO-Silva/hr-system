@@ -111,7 +111,7 @@ class Employee extends Model {
 
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pfist_name, :plast_name, :pemail, :pphone_number, :phire_date, :pjob_id, :psalary, :pdepartment_id);', array(
+                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pfist_name, :plast_name, :pemail, :pphone_number, :phire_date, :pjob_id, :psalary, :pdepartment_id, :plogin, :ppassword);', array(
                     ':pemployee_id'     => $this->getemployee_id(),
                     ':pfist_name'       => $this->getfist_name(),
                     ':plast_name'       => $this->getlast_name(),
@@ -120,7 +120,9 @@ class Employee extends Model {
                     ':phire_date'       => $this->gethire_date(),
                     ':pjob_id'          => $this->getjob_id(),
                     ':psalary'          => $this->getsalary(),
-                    ':pdepartment_id'   => $this->getdepartment_id()
+                    ':pdepartment_id'   => $this->getdepartment_id(),
+                    ':plogin'           => $this->getlogin(),
+                    ':ppassword'        => $this->getpassword()
                 ));
 
                 $this->setValues($results[0]);
