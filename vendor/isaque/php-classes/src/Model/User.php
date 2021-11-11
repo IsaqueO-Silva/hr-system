@@ -7,7 +7,8 @@ use Isaque\DB\Sql;
 
 class User extends Model {
 
-    const SESSION  = 'User';
+    const SESSION   = 'User';
+    const ERROR     = 'UserError';
 
     public static function login($login, $password) {
 
