@@ -18,6 +18,7 @@ class Employee extends Model {
             FROM employees a
             INNER JOIN jobs b ON (a.job_id = b.job_id)
             INNER JOIN departments c ON (a.department_id = c.department_id)
+            LEFT JOIN users d ON (a.employee_id = d.employee_id)
             WHERE(employee_id = :employee_id);',
             array(
                 ':employee_id'   => $employee_id
@@ -65,7 +66,7 @@ class Employee extends Model {
             else {
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pfist_name, :plast_name, :pemail, :pphone_number, :phire_date, :pjob_id, :psalary, :pdepartment_id);', array(
+                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pfist_name, :plast_name, :pemail, :pphone_number, :phire_date, :pjob_id, :psalary, :pdepartment_id, :plogin, :ppassword);', array(
                     ':pemployee_id'     => 0,
                     ':pfist_name'       => $this->getfist_name(),
                     ':plast_name'       => $this->getlast_name(),
@@ -74,7 +75,9 @@ class Employee extends Model {
                     ':phire_date'       => $this->gethire_date(),
                     ':pjob_id'          => $this->getjob_id(),
                     ':psalary'          => $this->getsalary(),
-                    ':pdepartment_id'   => $this->getdepartment_id()
+                    ':pdepartment_id'   => $this->getdepartment_id(),
+                    ':plogin'           => $this->getlogin(),
+                    ':ppassword'        => $this->getpassword()
                 ));
 
                 $this->setValues($results[0]);

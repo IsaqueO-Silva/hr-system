@@ -106,7 +106,7 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="login">Login</label>
-                  <input type="text" class="form-control" id="login" name="login" required>
+                  <input type="text" class="form-control" id="login" name="login" value="<?php echo htmlspecialchars( $employee["login"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
                 </div>
               </div>
             </div>
