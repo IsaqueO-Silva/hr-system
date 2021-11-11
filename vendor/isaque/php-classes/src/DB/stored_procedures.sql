@@ -173,8 +173,14 @@ BEGIN
 
     UPDATE employees
     SET
-      employee_name  = pemployee_name,
-      location_id      = plocation_id
+      fist_name = pfist_name,
+      last_name = plast_name,
+      email = pemail,
+      phone_number = pphone_number,
+      hire_date = phire_date,
+      job_id = pjob_id,
+      salary = psalary,
+      department_id = pdepartment_id
     WHERE (employee_id    = pemployee_id);
 
   ELSE
@@ -183,12 +189,8 @@ BEGIN
     VALUES (pfist_name, plast_name, pemail, pphone_number, phire_date, pjob_id, psalary, pdepartment_id);
 
 		SET pemployee_id = LAST_INSERT_ID();
-
-    INSERT INTO users(employee_id, login, password)
-    VALUES (pfist_name, plast_name, pemail);
-
   END IF;
-    
+
   SELECT *
   FROM employees
   WHERE (employee_id = pemployee_id);

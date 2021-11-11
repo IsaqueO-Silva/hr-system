@@ -60,10 +60,16 @@ class Employee extends Model {
             else {
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pemployee_name, :pregion_id);', array(
-                    ':pemployee_id'          => 0,
-                    ':pemployee_name'        => $this->getemployee_name(),
-                    ':pregion_id'           => $this->getregion_id()
+                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pfist_name, :plast_name, :pemail, :pphone_number, :phire_date, :pjob_id, :psalary, :pdepartment_id);', array(
+                    ':pemployee_id'     => 0,
+                    ':pfist_name'       => $this->getfist_name(),
+                    ':plast_name'       => $this->getlast_name(),
+                    ':pemail'           => $this->getemail(),
+                    ':pphone_number'    => $this->getphone_number(),
+                    ':phire_date'       => $this->gethire_date(),
+                    ':pjob_id'          => $this->getjob_id(),
+                    ':psalary'          => $this->getsalary(),
+                    ':pdepartment_id'   => $this->getdepartment_id()
                 ));
 
                 $this->setValues($results[0]);
