@@ -19,7 +19,7 @@ class Employee extends Model {
             INNER JOIN jobs b ON (a.job_id = b.job_id)
             INNER JOIN departments c ON (a.department_id = c.department_id)
             LEFT JOIN users d ON (a.employee_id = d.employee_id)
-            WHERE(employee_id = :employee_id);',
+            WHERE(a.employee_id = :employee_id);',
             array(
                 ':employee_id'   => $employee_id
             ));
@@ -103,7 +103,8 @@ class Employee extends Model {
                 empty($this->gethire_date()) ||
                 empty($this->getjob_id()) ||
                 empty($this->getsalary()) ||
-                empty($this->getdepartment_id())
+                empty($this->getdepartment_id()) ||
+                empty($this->getlogin())
             ) {
 
                 Employee::setError('Please fill in all fields!');
@@ -124,8 +125,7 @@ class Employee extends Model {
                     ':pjob_id'          => $this->getjob_id(),
                     ':psalary'          => $this->getsalary(),
                     ':pdepartment_id'   => $this->getdepartment_id(),
-                    ':plogin'           => $this->getlogin(),
-                    ':ppassword'        => $this->getpassword()
+                    ':plogin'           => $this->getlogin()
                 ));
 
                 $this->setValues($results[0]);

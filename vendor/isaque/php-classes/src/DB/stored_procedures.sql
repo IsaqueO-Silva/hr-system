@@ -185,10 +185,12 @@ BEGIN
       department_id = pdepartment_id
     WHERE (employee_id    = pemployee_id);
 
-    UPDATE users
-    SET
-      login = plogin
-    WHERE (employee_id = pemployee_id);
+    IF plogin != "" THEN
+      UPDATE users
+      SET
+        login = plogin
+      WHERE (employee_id = pemployee_id);
+    END IF;
 
   ELSE
 
