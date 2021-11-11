@@ -14,7 +14,12 @@ class Employee extends Model {
 
             $sql = new Sql();
 
-            $values = $sql->select('SELECT * FROM employees a INNER JOIN regions b ON (a.region_id = b.region_id) WHERE(employee_id = :employee_id);', array(
+            $values = $sql->select('SELECT *
+            FROM employees a
+            INNER JOIN jobs b ON (a.job_id = b.job_id)
+            INNER JOIN departments c ON (a.department_id = c.department_id)
+            WHERE(employee_id = :employee_id);',
+            array(
                 ':employee_id'   => $employee_id
             ));
 
@@ -88,8 +93,14 @@ class Employee extends Model {
 
             if(
                 empty($this->getemployee_id()) ||
-                empty($this->getemployee_name()) ||
-                empty($this->getregion_id())
+                empty($this->getfist_name()) ||
+                empty($this->getlast_name()) ||
+                empty($this->getemail()) ||
+                empty($this->getphone_number()) ||
+                empty($this->gethire_date()) ||
+                empty($this->getjob_id()) ||
+                empty($this->getsalary()) ||
+                empty($this->getdepartment_id())
             ) {
 
                 Employee::setError('Please fill in all fields!');
@@ -100,10 +111,16 @@ class Employee extends Model {
 
                 $sql = new Sql();
 
-                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pemployee_name, :pregion_id);', array(
-                    ':pemployee_id'      => $this->getemployee_id(),
-                    ':pemployee_name'    => $this->getemployee_name(),
-                    ':pregion_id'       => $this->getregion_id()
+                $results = $sql->select('CALL sp_employees_save(:pemployee_id, :pfist_name, :plast_name, :pemail, :pphone_number, :phire_date, :pjob_id, :psalary, :pdepartment_id);', array(
+                    ':pemployee_id'     => $this->getemployee_id(),
+                    ':pfist_name'       => $this->getfist_name(),
+                    ':plast_name'       => $this->getlast_name(),
+                    ':pemail'           => $this->getemail(),
+                    ':pphone_number'    => $this->getphone_number(),
+                    ':phire_date'       => $this->gethire_date(),
+                    ':pjob_id'          => $this->getjob_id(),
+                    ':psalary'          => $this->getsalary(),
+                    ':pdepartment_id'   => $this->getdepartment_id()
                 ));
 
                 $this->setValues($results[0]);

@@ -28,4 +28,16 @@ $app->get('/logout', function() {
     header('Location: /');
     die;
 });
+
+$app->get('/users', function() {
+
+    User::verifyLogin();
+
+    $page = new Page();
+
+    $page('users', array(
+        'users' => User::listAll(),
+        'msgError'  => Location::getError()
+    ));
+});
 ?>

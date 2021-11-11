@@ -10,13 +10,13 @@ use \Isaque\Model\User;
 
 $app = new Slim();
 
-require_once('users.php');
-require_once('regions.php');
-require_once('countries.php');
-require_once('locations.php');
-require_once('departments.php');
-require_once('jobs.php');
-require_once('employees.php');
+require_once('routes/users.php');
+require_once('routes/regions.php');
+require_once('routes/countries.php');
+require_once('routes/locations.php');
+require_once('routes/departments.php');
+require_once('routes/jobs.php');
+require_once('routes/employees.php');
 
 $app->config('debug', true);
 
