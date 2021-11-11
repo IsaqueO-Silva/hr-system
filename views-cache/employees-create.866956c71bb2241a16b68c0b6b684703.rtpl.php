@@ -99,6 +99,23 @@
                 </div>
               </div>
             </div>
+            <div class="alert alert-danger alert-dismissible">
+              <h4><strong>Attention: Fill in the fields below only if this employee is a system user</strong>, with this a user will be registered for the employee.</h4>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                  <label for="login">Login</label>
+                  <input type="text" class="form-control" id="login" name="login">
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+              </div>
+            </div>
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
