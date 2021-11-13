@@ -28,4 +28,14 @@ $app->get('/logout', function() {
     header('Location: /');
     die;
 });
+
+$app->get('/forgot', function() {
+
+    $page = new Page();
+
+    $page->setTpl('forgot', array(
+        'header'    => false,
+        'footer'    => false
+    ));
+});
 ?>
