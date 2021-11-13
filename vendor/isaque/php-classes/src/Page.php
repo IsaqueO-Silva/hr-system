@@ -3,6 +3,7 @@
 namespace Isaque;
 
 use Rain\Tpl;
+use \Isaque\Model\User;
 
 class Page {
 
@@ -17,6 +18,12 @@ class Page {
     public function __construct($opts = array(), $tpl_dir = '/views/') {
 
         $this->options = array_merge($this->defaults, $opts);
+
+        if($_SESSION[User::SESSION]) {
+
+            /* Capturing user name from the session variable */
+            $this->options['data']['name'] = $_SESSION[User::SESSION]['fist_name'].' '.$_SESSION[User::SESSION]['last_name'];
+        }
 
         $config = array(
             'tpl_dir'       => $_SERVER['DOCUMENT_ROOT'].$tpl_dir,
