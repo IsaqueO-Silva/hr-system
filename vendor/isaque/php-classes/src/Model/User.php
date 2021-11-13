@@ -25,7 +25,7 @@ class User extends Model {
 
             $data = $results[0];
 
-            if($password === $data['password']) {
+            if(password_verify($password, $data['password'])) {
 
                 $user = new User();
 
