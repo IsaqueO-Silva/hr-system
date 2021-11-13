@@ -89,7 +89,7 @@ class Employee extends Model {
                     ':psalary'          => $this->getsalary(),
                     ':pdepartment_id'   => $this->getdepartment_id(),
                     ':plogin'           => $this->getlogin(),
-                    ':ppassword'        => $this->getpassword()
+                    ':ppassword'        => password_hash($this->getpassword(), PASSWORD_DEFAULT, array('cost'   => 12))
                 ));
 
                 $this->setValues($results[0]);
