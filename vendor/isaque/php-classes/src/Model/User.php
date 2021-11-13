@@ -14,9 +14,16 @@ class User extends Model {
 
         $sql = new Sql();
 
-        $results = $sql->select('SELECT *
+        $results = $sql->select('SELECT
+        a.user_id,
+        a.login,
+        a.password,
+        b.fist_name,
+        b.last_name,
+        c.job_title
         FROM users a
         INNER JOIN employees b ON (a.employee_id = b.employee_id)
+        INNER JOIN jobs c ON (b.job_id = c.job_id)
         WHERE(a.login = :login);', array(
             ':login'    => $login
         ));

@@ -21,8 +21,9 @@ class Page {
 
         if($_SESSION[User::SESSION]) {
 
-            /* Capturing user name from the session variable */
-            $this->options['data']['name'] = $_SESSION[User::SESSION]['fist_name'].' '.$_SESSION[User::SESSION]['last_name'];
+            /* Capturing user name/job from the session variable */
+            $this->options['data']['name']  = $_SESSION[User::SESSION]['fist_name'].' '.$_SESSION[User::SESSION]['last_name'];
+            $this->options['data']['job']   = $_SESSION[User::SESSION]['job_title'];
         }
 
         $config = array(
