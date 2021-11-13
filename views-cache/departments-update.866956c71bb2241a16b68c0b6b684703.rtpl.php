@@ -33,7 +33,7 @@
           <div class="box-body">
             <div class="form-group">
               <label for="department_name">Name</label>
-              <input type="text" class="form-control" id="department_name" name="department_name" value="<?php echo htmlspecialchars( $department["department_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+              <input type="text" class="form-control" id="department_name" name="department_name" value="<?php echo htmlspecialchars( $department["department_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="200" required>
             </div>
             <div class="row">
               <div class="col-xs-4 col-md-2">

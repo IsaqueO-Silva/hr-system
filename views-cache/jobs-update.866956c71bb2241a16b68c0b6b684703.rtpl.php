@@ -33,15 +33,15 @@
           <div class="box-body">
             <div class="form-group">
               <label for="job_title">Title</label>
-              <input type="text" class="form-control" id="job_title" name="job_title" value="<?php echo htmlspecialchars( $job["job_title"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <input type="text" class="form-control" id="job_title" name="job_title" value="<?php echo htmlspecialchars( $job["job_title"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="100" required>
             </div>
             <div class="form-group">
               <label for="min_salary">Minimum salary</label>
-              <input type="number" class="form-control" id="min_salary" name="min_salary" value="<?php echo htmlspecialchars( $job["min_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <input type="number" class="form-control" id="min_salary" name="min_salary" value="<?php echo htmlspecialchars( $job["min_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
             </div>
             <div class="form-group">
               <label for="max_salary">Maximum salary</label>
-              <input type="number" class="form-control" id="max_salary" name="max_salary" value="<?php echo htmlspecialchars( $job["max_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <input type="number" class="form-control" id="max_salary" name="max_salary" value="<?php echo htmlspecialchars( $job["max_salary"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
             </div>
           </div>
           <!-- /.box-body -->

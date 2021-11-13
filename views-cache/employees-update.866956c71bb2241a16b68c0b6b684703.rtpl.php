@@ -35,13 +35,13 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="fist_name">Fist name</label>
-                  <input type="text" class="form-control" id="fist_name" name="fist_name" value="<?php echo htmlspecialchars( $employee["fist_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="text" class="form-control" id="fist_name" name="fist_name" value="<?php echo htmlspecialchars( $employee["fist_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="100" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="last_name">Last name</label>
-                  <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo htmlspecialchars( $employee["last_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo htmlspecialchars( $employee["last_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="100" required>
                 </div>
               </div>
             </div>
@@ -49,13 +49,13 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars( $employee["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars( $employee["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="120" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                   <label for="phone_number">Phone number</label>
-                  <input type="text" class="form-control" id="phone_number" name="phone_number" value="<?php echo htmlspecialchars( $employee["phone_number"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="text" class="form-control" id="phone_number" name="phone_number" value="<?php echo htmlspecialchars( $employee["phone_number"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="15" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-2">
@@ -106,7 +106,7 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="login">Login</label>
-                  <input type="text" class="form-control" id="login" name="login" value="<?php echo htmlspecialchars( $employee["login"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="text" class="form-control" id="login" name="login" value="<?php echo htmlspecialchars( $employee["login"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="64" required>
                 </div>
               </div>
             </div>

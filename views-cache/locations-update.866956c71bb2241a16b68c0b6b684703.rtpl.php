@@ -33,25 +33,25 @@
           <div class="box-body">
             <div class="form-group">
               <label for="street_address">Street address</label>
-              <input type="text" class="form-control" id="street_address" name="street_address" value="<?php echo htmlspecialchars( $location["street_address"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+              <input type="text" class="form-control" id="street_address" name="street_address" value="<?php echo htmlspecialchars( $location["street_address"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="200" required>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                   <label for="postal_code">Postal code</label>
-                  <input type="text" class="form-control" maxlength="10" id="postal_code" name="postal_code" value="<?php echo htmlspecialchars( $location["postal_code"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="text" class="form-control" maxlength="10" id="postal_code" name="postal_code" value="<?php echo htmlspecialchars( $location["postal_code"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="10" required>
                 </div>
               </div>
               <div class="col-xs-6 col-md-5">
                 <div class="form-group">
                   <label for="city">City</label>
-                  <input type="text" class="form-control" id="city" name="city" value="<?php echo htmlspecialchars( $location["city"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="text" class="form-control" id="city" name="city" value="<?php echo htmlspecialchars( $location["city"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="100" required>
                 </div>
               </div>
               <div class="col-xs-6 col-md-5">
                 <div class="form-group">
                   <label for="state_province">State</label>
-                  <input type="text" class="form-control" id="state_province" name="state_province" value="<?php echo htmlspecialchars( $location["state_province"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
+                  <input type="text" class="form-control" id="state_province" name="state_province" value="<?php echo htmlspecialchars( $location["state_province"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="100" required>
                 </div>
               </div>
             </div>

@@ -33,7 +33,7 @@
           <div class="box-body">
             <div class="form-group">
               <label for="job_title">Title</label>
-              <input type="text" class="form-control" id="job_title" name="job_title" required>
+              <input type="text" class="form-control" id="job_title" name="job_title" maxlength="100" required>
             </div>
             <div class="form-group">
               <label for="min_salary">Minimum salary</label>

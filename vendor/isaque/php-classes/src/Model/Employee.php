@@ -14,7 +14,19 @@ class Employee extends Model {
 
             $sql = new Sql();
 
-            $values = $sql->select('SELECT *
+            $values = $sql->select('SELECT
+            a.employee_id,
+            a.fist_name,
+            a.last_name,
+            a.email,
+            a.phone_number,
+            a.hire_date,
+            a.job_id,
+            b.job_title,
+            a.salary,
+            a.department_id,
+            c.department_name,
+            d.login
             FROM employees a
             INNER JOIN jobs b ON (a.job_id = b.job_id)
             INNER JOIN departments c ON (a.department_id = c.department_id)
@@ -141,7 +153,6 @@ class Employee extends Model {
 
     public function delete() : void {
         try {
-
             $sql = new Sql();
 
             $sql->query('DELETE FROM employees WHERE(employee_id = :employee_id);', array(
