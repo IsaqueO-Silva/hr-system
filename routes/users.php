@@ -31,11 +31,11 @@ $app->get('/logout', function() {
 
 $app->get('/forgot', function() {
 
-    $page = new Page();
-
-    $page->setTpl('forgot', array(
+    $page = new Page(array(
         'header'    => false,
         'footer'    => false
     ));
+
+    $page->setTpl('forgot');
 });
 ?>
