@@ -35,13 +35,13 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="fist_name">Fist name</label>
-                  <input type="text" class="form-control" id="fist_name" name="fist_name" value="{$employee.fist_name}" required>
+                  <input type="text" class="form-control" id="fist_name" name="fist_name" value="{$employee.fist_name}" maxlength="100" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="last_name">Last name</label>
-                  <input type="text" class="form-control" id="last_name" name="last_name" value="{$employee.last_name}" required>
+                  <input type="text" class="form-control" id="last_name" name="last_name" value="{$employee.last_name}" maxlength="100" required>
                 </div>
               </div>
             </div>
@@ -49,13 +49,13 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" value="{$employee.email}" required>
+                  <input type="email" class="form-control" id="email" name="email" value="{$employee.email}" maxlength="120" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                   <label for="phone_number">Phone number</label>
-                  <input type="text" class="form-control" id="phone_number" name="phone_number" value="{$employee.phone_number}" required>
+                  <input type="text" class="form-control" id="phone_number" name="phone_number" value="{$employee.phone_number}" maxlength="15" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-2">
@@ -106,7 +106,7 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="login">Login</label>
-                  <input type="text" class="form-control" id="login" name="login" value="{$employee.login}" required>
+                  <input type="text" class="form-control" id="login" name="login" value="{$employee.login}" maxlength="64" required>
                 </div>
               </div>
             </div>

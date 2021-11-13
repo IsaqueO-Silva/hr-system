@@ -10,6 +10,7 @@ use \Isaque\Model\User;
 
 $app = new Slim();
 
+require_once('functions.php');
 require_once('routes/users.php');
 require_once('routes/regions.php');
 require_once('routes/countries.php');

@@ -35,13 +35,13 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="fist_name">Fist name</label>
-                  <input type="text" class="form-control" id="fist_name" name="fist_name" required>
+                  <input type="text" class="form-control" id="fist_name" name="fist_name" maxlength="100" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="last_name">Last name</label>
-                  <input type="text" class="form-control" id="last_name" name="last_name" required>
+                  <input type="text" class="form-control" id="last_name" name="last_name" maxlength="100" required>
                 </div>
               </div>
             </div>
@@ -49,13 +49,13 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                  <input type="email" class="form-control" id="email" name="email" maxlength="120" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                   <label for="phone_number">Phone number</label>
-                  <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                  <input type="text" class="form-control" id="phone_number" name="phone_number" maxlength="15" required>
                 </div>
               </div>
               <div class="col-xs-12 col-md-2">
@@ -106,13 +106,13 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="login">Login</label>
-                  <input type="text" class="form-control" id="login" name="login">
+                  <input type="text" class="form-control" id="login" name="login" maxlength="64">
                 </div>
               </div>
               <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" name="password">
+                  <input type="password" class="form-control" id="password" name="password" maxlength="256">
                 </div>
               </div>
             </div>

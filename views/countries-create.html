@@ -33,7 +33,7 @@
           <div class="box-body">
             <div class="form-group">
               <label for="country_name">Name</label>
-              <input type="text" class="form-control" id="country_name" name="country_name" required>
+              <input type="text" class="form-control" id="country_name" name="country_name" maxlength="100" required>
             </div>
             <div class="row">
               <div class="col-xs-4 col-md-2">
