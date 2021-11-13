@@ -70,7 +70,7 @@ $app->post('/regions/create', function() {
 
     $region = new Region();
 
-    $region->setValues($_POST);
+    $region->setValues(sanitize($_POST));
 
     $region->insert();
 
@@ -86,7 +86,7 @@ $app->post('/regions/:region_id', function($region_id) {
 
     $region->get((int)$region_id);
 
-    $region->setValues($_POST);
+    $region->setValues(sanitize($_POST));
 
     $region->update();
 

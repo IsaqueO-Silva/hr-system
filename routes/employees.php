@@ -70,7 +70,7 @@ $app->post('/employees/create', function() {
 
     $employee = new Employee();
 
-    $employee->setValues($_POST);
+    $employee->setValues(sanitize($_POST));
 
     $employee->insert();
 
@@ -86,7 +86,7 @@ $app->post('/employees/:employee_id', function($employee_id) {
 
     $employee->get((int)$employee_id);
 
-    $employee->setValues($_POST);
+    $employee->setValues(sanitize($_POST));
 
     $employee->update();
 

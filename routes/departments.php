@@ -85,7 +85,7 @@ $app->post('/departments/create', function() {
 
     $department = new Department();
 
-    $department->setValues($_POST);
+    $department->setValues(sanitize($_POST));
 
     $department->insert();
 
@@ -101,7 +101,7 @@ $app->post('/departments/:department_id', function($department_id) {
 
     $department->get((int)$department_id);
 
-    $department->setValues($_POST);
+    $department->setValues(sanitize($_POST));
 
     $department->update();
 

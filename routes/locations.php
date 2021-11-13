@@ -70,7 +70,7 @@ $app->post('/locations/create', function() {
 
     $location = new Location();
 
-    $location->setValues($_POST);
+    $location->setValues(sanitize($_POST));
 
     $location->insert();
 
@@ -86,7 +86,7 @@ $app->post('/locations/:location_id', function($location_id) {
 
     $location->get((int)$location_id);
 
-    $location->setValues($_POST);
+    $location->setValues(sanitize($_POST));
 
     $location->update();
 

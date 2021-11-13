@@ -70,7 +70,7 @@ $app->post('/countries/create', function() {
 
     $country = new Country();
 
-    $country->setValues($_POST);
+    $country->setValues(sanitize($_POST));
 
     $country->insert();
 
@@ -86,7 +86,7 @@ $app->post('/countries/:country_id', function($country_id) {
 
     $country->get((int)$country_id);
 
-    $country->setValues($_POST);
+    $country->setValues(sanitize($_POST));
 
     $country->update();
 

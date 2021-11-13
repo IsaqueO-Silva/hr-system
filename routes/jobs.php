@@ -70,7 +70,7 @@ $app->post('/jobs/create', function() {
 
     $job = new Job();
 
-    $job->setValues($_POST);
+    $job->setValues(sanitize($_POST));
 
     $job->insert();
 
@@ -86,7 +86,7 @@ $app->post('/jobs/:job_id', function($job_id) {
 
     $job->get((int)$job_id);
 
-    $job->setValues($_POST);
+    $job->setValues(sanitize($_POST));
 
     $job->update();
 
