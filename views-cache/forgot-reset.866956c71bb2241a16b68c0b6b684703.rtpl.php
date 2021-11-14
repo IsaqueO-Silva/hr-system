@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Reset Password</title>
+  <title>HR System | Reset Password</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -26,11 +26,11 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="/res/admin/index2.html"><b>Admin</b>LTE</a>
+    <b>Hr</b>SYSTEM
   </div>
   
    <div class="help-block text-center">
-     Olá <?php echo htmlspecialchars( $name, ENT_COMPAT, 'UTF-8', FALSE ); ?>, digite uma nova senha:
+     Hello <?php echo htmlspecialchars( $name, ENT_COMPAT, 'UTF-8', FALSE ); ?>, enter a new password:
     </div>
 
   <!-- START LOCK SCREEN ITEM -->
@@ -40,7 +40,7 @@
     <form  action="/admin/forgot/reset" method="post">
       <input type="hidden" name="code" value="<?php echo htmlspecialchars( $code, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
       <div class="input-group">
-        <input type="password" class="form-control" placeholder="Digite a nova senha" name="password">
+        <input type="password" class="form-control" placeholder="Enter a new password" name="password">
         <div class="input-group-btn">
           <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
         </div>
@@ -52,7 +52,7 @@
   <!-- /.lockscreen-item -->
   
   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2014-2016 <b><a href="http://almsaeedstudio.com" class="text-black">Almsaeed Studio</a></b><br>
+    Copyright &copy; 2021 <b>Isaque O. Silva</b><br>
     All rights reserved
   </div>
 </div>
