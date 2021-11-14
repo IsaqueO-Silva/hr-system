@@ -73,3 +73,14 @@ CREATE TABLE users (
   dtregister TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY(employee_id) REFERENCES employees(employee_id)
 );
+
+DROP TABLE IF EXISTS 'db_hr'.'users_passwords_recoveries';
+
+CREATE TABLE users_passwords_recoveries (
+    recovery_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id INTEGER NOT NULL,
+    user_ip VARCHAR(45) NOT NULL,
+    recovery_date DATETIME,
+    register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES users(user_id)
+);

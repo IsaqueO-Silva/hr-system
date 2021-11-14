@@ -77,5 +77,26 @@ class User extends Model {
 
         $_SESSION[User::SESSION]    = NULL;
     }
+
+    public static function getForgot($email) {
+
+        $sql = new Sql();
+
+        $results = $sql->select('SELECT *
+        FROM users a
+        INNER JOIN employees b ON (a.employee_id = b.employee_id)
+        WHERE (b.email = :email);', array(
+            ':email'    => $email
+        ));
+
+        if(count($results) === 0) {
+
+            throw new \Exception('Error resetting password');
+        }
+        else {
+
+            
+        }
+    }
 }
 ?>

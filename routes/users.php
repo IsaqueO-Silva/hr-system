@@ -41,11 +41,8 @@ $app->get('/forgot', function() {
 
 $app->post('/forgot', function() {
 
-    $page = new Page(array(
-        'header'    => false,
-        'footer'    => false
-    ));
+    $_POST = sanitize($_POST);
 
-    $page->setTpl('forgot-sent');
+    User::getForgot($_POST['email']);
 });
 ?>
