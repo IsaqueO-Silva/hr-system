@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>HR System | Lockscreen</title>
+  <title>HR System | Reset Password</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -29,28 +29,13 @@
     <b>Hr</b>SYSTEM
   </div>
 
-  <!-- START LOCK SCREEN ITEM -->
-  <div class="lockscreen-item">
-
-    <!-- lockscreen credentials (contains the form) -->
-    <form action="/forgot" method="post">
-      <div class="input-group">
-        <input type="email" class="form-control" placeholder="Enter your email" name="email">
-
-        <div class="input-group-btn">
-          <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
-        </div>
-      </div>
-    </form>
-    <!-- /.lockscreen credentials -->
-
-  </div>
   <!-- /.lockscreen-item -->
   <div class="help-block text-center">
-    Enter your email and receive instructions to reset your password.
-  </div>
-  <div class="text-center">
-    <a href="/login">Or sign in as a different user</a>
+    <div class="callout callout-success">
+      <h4>Email sent!</h4>
+
+      <p>Check your email for instructions.</p>
+    </div>
   </div>
   <div class="lockscreen-footer text-center">
     Copyright &copy; 2021 <b>Isaque O. Silva</b><br>

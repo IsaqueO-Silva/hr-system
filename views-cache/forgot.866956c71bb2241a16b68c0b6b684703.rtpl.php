@@ -33,7 +33,7 @@
   <div class="lockscreen-item">
 
     <!-- lockscreen credentials (contains the form) -->
-    <form  action="/admin/forgot" method="post">
+    <form action="/forgot" method="post">
       <div class="input-group">
         <input type="email" class="form-control" placeholder="Enter your email" name="email">
 

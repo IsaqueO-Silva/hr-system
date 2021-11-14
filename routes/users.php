@@ -38,4 +38,14 @@ $app->get('/forgot', function() {
 
     $page->setTpl('forgot');
 });
+
+$app->post('/forgot', function() {
+
+    $page = new Page(array(
+        'header'    => false,
+        'footer'    => false
+    ));
+
+    $page->setTpl('forgot-sent');
+});
 ?>
