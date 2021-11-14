@@ -211,5 +211,19 @@ BEGIN
   FROM employees
   WHERE (employee_id = pemployee_id);
 	
+END
+
+CREATE PROCEDURE sp_users_passwords_recoveries_save(
+puser_id INT(11),
+puser_ip VARCHAR(45)
+)
+BEGIN
+
+  INSERT INTO users_passwords_recoveries(user_id, user_ip)
+  VALUES(puser_id, puser_ip);
+
+  SELECT *
+  FROM users_passwords_recoveries
+  WHERE(recovery_id = LAST_INSERT_ID());
 END $$
 DELIMITER ;
