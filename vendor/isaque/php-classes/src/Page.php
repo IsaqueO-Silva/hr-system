@@ -19,10 +19,7 @@ class Page {
 
         $this->options = array_merge($this->defaults, $opts);
 
-        if(
-            (isset($_SESSION[User::SESSION])) ||
-            ($_SESSION[User::SESSION])
-        ) {
+        if(isset($_SESSION[User::SESSION])) {
 
             /* Capturing user name/job from the session variable */
             $this->options['data']['name']  = $_SESSION[User::SESSION]['fist_name'].' '.$_SESSION[User::SESSION]['last_name'];
