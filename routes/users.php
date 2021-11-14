@@ -44,5 +44,8 @@ $app->post('/forgot', function() {
     $_POST = sanitize($_POST);
 
     User::getForgot($_POST['email']);
+
+    header('Location: /forgot/sent');
+    die;
 });
 ?>

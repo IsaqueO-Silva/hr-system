@@ -4,11 +4,14 @@ namespace Isaque\Model;
 
 use Isaque\Model;
 use Isaque\DB\Sql;
+use Isaque\Mailer;
 
 class User extends Model {
 
     const SESSION   = 'User';
     const ERROR     = 'UserError';
+    const SECRET    = 'User_Secret';
+    const SECRET_IV = 'User_Secret_IV';
 
     public static function login($login, $password) {
 
@@ -95,7 +98,40 @@ class User extends Model {
         }
         else {
 
-            
+            $data = $results[0];
+
+            $results2 = $sql->select('CALL sp_users_passwords_recoveries_save(:user_id, :user_ip);', array(
+                ':user_id'  => $data['user_id'],
+                ':user_ip'  => $_SERVER['REMOTE_ADDR']
+            ));
+
+            if(count($results2) === 0) {
+
+                throw new \Exception('Error resetting password');
+            }
+            else {
+
+                $dataRecovery = $results2[0];
+
+                $code = openssl_encrypt(
+                    $dataRecovery['recovery_id'],
+                    'AES-128-CBC',
+                    pack('a16', User::SECRET),
+                    0,
+                    pack('a16', User::SECRET_IV)
+                );
+
+                $code = base64_encode($code);
+
+                $link = 'http://www.hrsystem.com/forgot/reset?code='.$code;
+
+                $mailer = new Mailer($data['email'], $data['fist_name'].$data['last_name'], array(
+                    'name'  => $data['fist_name'].$data['last_name'],
+                    'link'  => $link
+                ));
+
+                $mailer->send();
+            }
         }
     }
 }
