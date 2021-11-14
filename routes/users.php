@@ -48,4 +48,14 @@ $app->post('/forgot', function() {
     header('Location: /forgot/sent');
     die;
 });
+
+$app->get('/forgot/sent', function() {
+
+    $page = new Page(array(
+        'header'    => false,
+        'footer'    => false
+    ));
+
+    $page->setTpl('forgot-sent');
+});
 ?>
