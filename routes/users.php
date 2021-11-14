@@ -58,4 +58,19 @@ $app->get('/forgot/sent', function() {
 
     $page->setTpl('forgot-sent');
 });
+
+$app->get('/forgot/reset', function() {
+
+    $user = User::validForgotDecrypt($_GET['code']);
+
+    $page = new Page(array(
+        'header'    => false,
+        'footer'    => false
+    ));
+
+    $page->setTpl('forgot-reset', array(
+        'name'	=> $user['fist_name'].' '.$user['last_name'],
+		'code'	=> $_GET['code']
+    ));
+});
 ?>

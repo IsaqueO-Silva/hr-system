@@ -134,5 +134,38 @@ class User extends Model {
             }
         }
     }
+
+    public static function validForgotDecrypt($code) {
+
+        $recovery_id = openssl_decrypt(
+            base64_decode($code),
+            'AES-128-CBC',
+            pack('a16', User::SECRET),
+            0,
+            pack('a16', User::SECRET_IV)
+        );
+
+        $sql = new Sql();
+
+        $results = $sql->select('SELECT *
+        FROM users_passwords_recoveries a
+        INNER JOIN users b ON (a.user_id = b.user_id)
+        INNER JOIN employees c ON (b.employee_id = c.employee_id)
+        WHERE (
+            (a.recovery_id = :recovery_id)
+            AND (DATE_ADD(a.register_date, INTERVAL 1 HOUR) >= NOW())
+        );',
+        array(
+            ':recovery_id'  => $recovery_id
+        ));
+
+        if(count($results) === 0) {
+            throw new \Exception('Error resetting password', 1);
+        }
+        else {
+            
+            return $results[0];
+        }
+    }
 }
 ?>
