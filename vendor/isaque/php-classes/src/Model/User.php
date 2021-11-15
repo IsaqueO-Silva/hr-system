@@ -125,8 +125,8 @@ class User extends Model {
 
                 $link = 'http://www.hrsystem.com/forgot/reset?code='.$code;
 
-                $mailer = new Mailer($data['email'], utf8_encode($data['fist_name'].' '.$data['last_name']), array(
-                    'name'  => utf8_encode($data['fist_name'].' '.$data['last_name']),
+                $mailer = new Mailer($data['email'], $data['fist_name'].' '.$data['last_name'], array(
+                    'name'  => $data['fist_name'].' '.$data['last_name'],
                     'link'  => $link
                 ));
 

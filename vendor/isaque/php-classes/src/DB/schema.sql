@@ -1,5 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS 'db_hr';
+CREATE DATABASE  IF NOT EXISTS 'db_hr' CHARACTER SET utf8;
 USE 'db_hr';
+
+/* In case of the database being created without setting the charset */
+/* ALTER DATABASE db_hr CHARACTER SET utf8 COLLATE utf8_general_ci */
 
 DROP TABLE IF EXISTS 'db_hr'.'regions';
 
