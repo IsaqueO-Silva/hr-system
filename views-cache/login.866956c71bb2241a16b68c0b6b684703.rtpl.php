@@ -24,8 +24,12 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition login-page" s>
+<body class="hold-transition login-page">
 <div class="login-box">
+  <div class="lockscreen-logo">
+    <b>Hr</b>SYSTEM
+  </div>
+
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
