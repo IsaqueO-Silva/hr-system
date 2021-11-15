@@ -13,6 +13,20 @@ class User extends Model {
     const SECRET    = 'User_Secret';
     const SECRET_IV = 'User_Secret_IV';
 
+    public function get($user_id) {
+
+        $sql = new Sql();
+
+        $results = $sql->select('SELECT * FROM users WHERE (user_id = :user_id);', array(
+            ':user_id'  => $user_id
+        ));
+
+        if(count($results) != 0) {
+
+            $this->setValues($results[0]);
+        }
+    }
+
     public static function login($login, $password) {
 
         $sql = new Sql();
@@ -166,6 +180,30 @@ class User extends Model {
             
             return $results[0];
         }
+    }
+
+    public static function setForgotUsed($recovery_id) {
+
+        $sql = new Sql();
+
+        $sql->query('UPDATE users_passwords_recoveries SET recovery_date = NOW() WHERE (recovery_id = :recovery_id);',
+        array(
+            ':recovery_id'  => $recovery_id
+        ));
+    }
+
+    public function setPassword($password) {
+
+        $password = password_hash($password, PASSWORD_BCRYPT, array(
+            'cost'	=> 12
+        ));
+
+        $sql = new Sql();
+
+        $sql->query('UPDATE users SET password = :password WHERE(user_id = :user_id);', array(
+            ':password' => $password,
+            ':user_id'  => $this->getuser_id()
+        ));
     }
 }
 ?>

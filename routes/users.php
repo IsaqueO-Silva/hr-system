@@ -73,4 +73,26 @@ $app->get('/forgot/reset', function() {
 		'code'	=> $_GET['code']
     ));
 });
+
+$app->post('/forgot/reset', function() {
+
+    $data = User::validForgotDecrypt($_POST['code']);
+
+    User::setForgotUsed($data['recovery_id']);
+
+    $user = new User();
+
+    $user->get((int)$data['user_id']);
+
+    $password = sanitize($_POST);
+
+    $user->setPassword($password['password']);
+
+    $page = new Page(array(
+        'header'    => false,
+        'footer'    => false
+    ));
+
+    $page->setTpl('forgot-reset-success');
+});
 ?>
