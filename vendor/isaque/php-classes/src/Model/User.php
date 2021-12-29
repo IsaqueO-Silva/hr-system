@@ -49,10 +49,9 @@ class User extends Model {
             throw new \Exception('Incorrect login or password.');
         }
         else {
-
             $data = $results[0];
 
-            if(password_verify($password, $data['password'])) {
+            if($password == $data['password']) {
 
                 $user = new User();
 

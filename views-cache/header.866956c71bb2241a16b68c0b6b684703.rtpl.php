@@ -81,7 +81,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="/res/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><?php echo htmlspecialchars( $name, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
+              <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -89,7 +89,7 @@ desired effect
                 <img src="/res/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo htmlspecialchars( $name, ENT_COMPAT, 'UTF-8', FALSE ); ?> - <?php echo htmlspecialchars( $job, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+                  
                 </p>
               </li>
               <li class="user-footer">
