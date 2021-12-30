@@ -60,7 +60,7 @@ class CountryTest extends TestCase {
         $country = new Country();
 
         $country->setValues(array(
-            'country_id'    => '7',
+            'country_id'    => '32',
             'country_name'  => 'Guyana',
             'region_id'     => '1'
         ));
@@ -81,7 +81,7 @@ class CountryTest extends TestCase {
         $country = new Country();
 
         $country->setValues(array(
-            'country_id'    => '7'
+            'country_id'    => '32'
         ));
 
         $expected = '';

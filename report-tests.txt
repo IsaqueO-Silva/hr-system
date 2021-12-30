@@ -1,0 +1,10 @@
+Country
+ [x] Get a country from database
+ [x] List all countries from database
+ [x] Insert a country in database
+ [x] Update a country in database
+ [x] Delete a country in database
+ [x] Search a country in database
+ [x] Set and get an error message for the country class
+ [x] Clear an error message from the country class
+
