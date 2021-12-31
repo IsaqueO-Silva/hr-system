@@ -1,0 +1,10 @@
+Region
+ [x] Get a region from database
+ [x] List all regions from database
+ [x] Insert a region in database
+ [x] Update a region in database
+ [x] Delete a region in database
+ [x] Search a region in database
+ [x] Set and get an error message for the region class
+ [x] Clear an error message from the region class
+

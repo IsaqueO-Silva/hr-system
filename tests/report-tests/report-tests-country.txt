@@ -7,4 +7,3 @@ Country
  [x] Search a country in database
  [x] Set and get an error message for the country class
  [x] Clear an error message from the country class
-
