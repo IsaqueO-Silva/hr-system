@@ -1,0 +1,10 @@
+Location
+ [x] Get a location from database
+ [x] List all locations from database
+ [x] Insert a location in database
+ [x] Update a location in database
+ [x] Delete a location in database
+ [x] Search a location in database
+ [x] Set and get an error message for the location class
+ [x] Clear an error message from the location class
+
