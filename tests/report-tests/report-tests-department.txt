@@ -1,0 +1,10 @@
+Department
+ [x] Get a department from database
+ [x] List all departments from database
+ [x] Insert a department in database
+ [x] Update a department in database
+ [x] Delete a department in database
+ [x] Search a department in database
+ [x] Set and get an error message for the department class
+ [x] Clear an error message from the department class
+
