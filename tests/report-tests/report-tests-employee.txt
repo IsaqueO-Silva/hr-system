@@ -1,0 +1,10 @@
+Employee
+ [x] Get a employee from database
+ [x] List all employees from database
+ [x] Insert a employee in database
+ [x] Update a employee in database
+ [x] Delete a employee in database
+ [x] Search a employee in database
+ [x] Set and get an error message for the employee class
+ [x] Clear an error message from the employee class
+

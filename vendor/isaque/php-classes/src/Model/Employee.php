@@ -146,10 +146,6 @@ class Employee extends Model {
         }
         catch(\Exception $e) {
 
-            print('<pre>');
-            var_dump($e);
-            die;
-
             Employee::setError('Error updating the employee!');
             header('Location: /employees/'.$this->getemployee_id());
             die;

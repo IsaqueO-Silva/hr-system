@@ -1,0 +1,10 @@
+Job
+ [x] Get a job from database
+ [x] List all jobs from database
+ [x] Insert a job in database
+ [x] Update a job in database
+ [x] Delete a job in database
+ [x] Search a job in database
+ [x] Set and get an error message for the job class
+ [x] Clear an error message from the job class
+
