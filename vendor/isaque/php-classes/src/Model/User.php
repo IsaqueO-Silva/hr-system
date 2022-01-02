@@ -51,7 +51,7 @@ class User extends Model {
         else {
             $data = $results[0];
 
-            if($password == $data['password']) {
+            if(password_verify($password, $data['password'])) {
 
                 $user = new User();
 
@@ -191,7 +191,7 @@ class User extends Model {
         ));
     }
 
-    public function setPassword($password) {
+    public function updatePassword($password) {
 
         $password = password_hash($password, PASSWORD_BCRYPT, array(
             'cost'	=> 12

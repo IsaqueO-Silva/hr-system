@@ -76,6 +76,9 @@ $app->get('/forgot/reset', function() {
 
 $app->post('/forgot/reset', function() {
 
+
+
+
     $data = User::validForgotDecrypt($_POST['code']);
 
     User::setForgotUsed($data['recovery_id']);
@@ -84,9 +87,9 @@ $app->post('/forgot/reset', function() {
 
     $user->get((int)$data['user_id']);
 
-    $password = sanitize($_POST);
+    $password = $_POST['password'];
 
-    $user->setPassword($password['password']);
+    $user->updatePassword($password);
 
     $page = new Page(array(
         'header'    => false,

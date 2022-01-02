@@ -13,7 +13,7 @@ $app->get('/countries/search/:country_id', function($country_id) {
 
 $app->get('/countries', function() {
 
-    //User::verifyLogin();
+    User::verifyLogin();
 
     $page = new Page();
 
@@ -50,7 +50,7 @@ $app->get('/countries/:country_id/delete', function($country_id) {
 
 $app->get('/countries/:country_id', function($country_id) {
 
-    //User::verifyLogin();
+    User::verifyLogin();
 
     $country = new Country();
 
