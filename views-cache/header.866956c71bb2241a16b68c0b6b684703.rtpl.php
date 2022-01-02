@@ -89,7 +89,7 @@ desired effect
                 <img src="/res/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  
+                  <?php echo htmlspecialchars( $name, ENT_COMPAT, 'UTF-8', FALSE ); ?> - <?php echo htmlspecialchars( $job, ENT_COMPAT, 'UTF-8', FALSE ); ?>
                 </p>
               </li>
               <li class="user-footer">
