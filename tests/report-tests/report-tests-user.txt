@@ -1,0 +1,6 @@
+User
+ [x] Get a user from database
+ [x] User login
+ [x] Check if the user is logged in
+ [x] User logout
+
